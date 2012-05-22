@@ -300,7 +300,7 @@
 				<param name="roomB" />
 			</predicate>
 			<predicate name="at">
-				<param name="ball3" />
+				<param name="ball4" />
 				<param name="roomB" />
 			</predicate>
 			<predicate name="free">
