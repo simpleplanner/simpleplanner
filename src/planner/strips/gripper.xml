@@ -1,0 +1,571 @@
+<strips>
+	<domain name="gripper">
+		<action name="move">
+			<param name="$from" />
+			<param name="$to" />
+			<precondition>
+				<and>
+					<predicate name="at-robby">
+						<param name="$from" />
+					</predicate>
+					<predicate name="room">
+						<param name="$from" />
+					</predicate>
+					<predicate name="room">
+						<param name="$to" />
+					</predicate>
+				</and>
+			</precondition>
+			<effect>
+				<and>
+					<predicate name="at-robby">
+						<param name="$to" />
+					</predicate>
+					<not>
+						<predicate name="at-robby">
+							<param name="$from" />
+						</predicate>
+					</not>
+				</and>
+			</effect>
+		</action>
+
+		<action name="pick">
+			<param name="$ball" />
+			<param name="$room" />
+			<param name="$gripper" />
+			<precondition>
+				<and>
+					<predicate name="ball">
+						<param name="$ball" />
+					</predicate>
+					<predicate name="room">
+						<param name="$room" />
+					</predicate>
+					<predicate name="gripper">
+						<param name="$gripper" />
+					</predicate>
+					<predicate name="at">
+						<param name="$ball" />
+						<param name="$room" />
+					</predicate>
+					<predicate name="at-robby">
+						<param name="$room" />
+					</predicate>
+					<predicate name="free">
+						<param name="$gripper" />
+					</predicate>
+				</and>
+			</precondition>
+			<effect>
+				<and>
+					<predicate name="carry">
+						<param name="$ball" />
+						<param name="$gripper" />
+					</predicate>
+					<not>
+						<predicate name="at">
+							<param name="$ball" />
+							<param name="$room" />
+						</predicate>
+					</not>
+					<not>
+						<predicate name="free">
+							<param name="$gripper" />
+						</predicate>
+					</not>
+				</and>
+			</effect>
+		</action>
+
+		<action name="drop">
+			<param name="$ball" />
+			<param name="$room" />
+			<param name="$gripper" ></param>
+			<precondition>
+				<and>
+					<predicate name="ball">
+						<param name="$ball" />
+					</predicate>
+					<predicate name="room">
+						<param name="$room" />
+					</predicate>
+					<predicate name="gripper">
+						<param name="$gripper" />
+					</predicate>
+					<predicate name="carry">
+						<param name="$ball" />
+						<param name="$gripper" />
+					</predicate>
+					<predicate name="at-robby">
+						<param name="$room" />
+					</predicate>
+				</and>
+			</precondition>
+			<effect>
+				<and>
+					<predicate name="at">
+						<param name="$ball" />
+						<param name="$room" />
+					</predicate>
+					<not>
+						<predicate name="carry">
+							<param name="$ball" />
+							<param name="$gripper" />
+						</predicate>
+					</not>
+					<predicate name="free">
+						<param name="$gripper" />
+					</predicate>
+				</and>
+			</effect>
+		</action>
+	</domain>
+
+	<problem name="gripper2">
+		<object name="ball1" />
+		<object name="ball2" />
+		<object name="left" />
+		<object name="right" />
+		<object name="roomA" />
+		<object name="roomB" />
+		<init>
+			<predicate name="gripper">
+				<param name="left" />
+			</predicate>
+			<predicate name="gripper">
+				<param name="right" />
+			</predicate>
+			<predicate name="room">
+				<param name="roomA" />
+			</predicate>
+			<predicate name="room">
+				<param name="roomB" />
+			</predicate>
+			<predicate name="at-robby">
+				<param name="roomA" />
+			</predicate>
+			<predicate name="ball">
+				<param name="ball1" />
+			</predicate>
+			<predicate name="ball">
+				<param name="ball2" />
+			</predicate>
+			<predicate name="at">
+				<param name="ball1" />
+				<param name="roomB" />
+			</predicate>
+			<predicate name="at">
+				<param name="ball2" />
+				<param name="roomB" />
+			</predicate>
+			<predicate name="free">
+				<param name="left" />
+			</predicate>
+			<predicate name="free">
+				<param name="right" />
+			</predicate>
+		</init>
+		<goal>
+			<and>
+				<predicate name="at">
+					<param name="ball1" />
+					<param name="roomA" />
+				</predicate>
+				<predicate name="at">
+					<param name="ball2" />
+					<param name="roomA" />
+				</predicate>
+			</and>
+		</goal>
+	</problem>
+	
+	<problem name="gripper3">
+		<object name="ball1" />
+		<object name="ball2" />
+		<object name="ball3" />
+		<object name="left" />
+		<object name="right" />
+		<object name="roomA" />
+		<object name="roomB" />
+		<init>
+			<predicate name="gripper">
+				<param name="left" />
+			</predicate>
+			<predicate name="gripper">
+				<param name="right" />
+			</predicate>
+			<predicate name="room">
+				<param name="roomA" />
+			</predicate>
+			<predicate name="room">
+				<param name="roomB" />
+			</predicate>
+			<predicate name="at-robby">
+				<param name="roomB" />
+			</predicate>
+			<predicate name="ball">
+				<param name="ball1" />
+			</predicate>
+			<predicate name="ball">
+				<param name="ball2" />
+			</predicate>
+			<predicate name="ball">
+				<param name="ball3" />
+			</predicate>
+			<predicate name="at">
+				<param name="ball1" />
+				<param name="roomB" />
+			</predicate>
+			<predicate name="at">
+				<param name="ball2" />
+				<param name="roomB" />
+			</predicate>
+			<predicate name="at">
+				<param name="ball3" />
+				<param name="roomB" />
+			</predicate>
+			<predicate name="free">
+				<param name="left" />
+			</predicate>
+			<predicate name="free">
+				<param name="right" />
+			</predicate>
+		</init>
+		<goal>
+			<and>
+				<predicate name="at">
+					<param name="ball1" />
+					<param name="roomA" />
+				</predicate>
+				<predicate name="at">
+					<param name="ball2" />
+					<param name="roomA" />
+				</predicate>
+				<predicate name="at">
+					<param name="ball3" />
+					<param name="roomA" />
+				</predicate>
+			</and>
+		</goal>
+	</problem>
+	
+	<problem name="gripper4">
+		<object name="ball1" />
+		<object name="ball2" />
+		<object name="ball3" />
+		<object name="ball4" />
+		<object name="left" />
+		<object name="right" />
+		<object name="roomA" />
+		<object name="roomB" />
+		<init>
+			<predicate name="gripper">
+				<param name="left" />
+			</predicate>
+			<predicate name="gripper">
+				<param name="right" />
+			</predicate>
+			<predicate name="room">
+				<param name="roomA" />
+			</predicate>
+			<predicate name="room">
+				<param name="roomB" />
+			</predicate>
+			<predicate name="at-robby">
+				<param name="roomA" />
+			</predicate>
+			<predicate name="ball">
+				<param name="ball1" />
+			</predicate>
+			<predicate name="ball">
+				<param name="ball2" />
+			</predicate>
+			<predicate name="ball">
+				<param name="ball3" />
+			</predicate>
+			<predicate name="ball">
+				<param name="ball4" />
+			</predicate>
+			<predicate name="at">
+				<param name="ball1" />
+				<param name="roomB" />
+			</predicate>
+			<predicate name="at">
+				<param name="ball2" />
+				<param name="roomB" />
+			</predicate>
+			<predicate name="at">
+				<param name="ball3" />
+				<param name="roomB" />
+			</predicate>
+			<predicate name="at">
+				<param name="ball3" />
+				<param name="roomB" />
+			</predicate>
+			<predicate name="free">
+				<param name="left" />
+			</predicate>
+			<predicate name="free">
+				<param name="right" />
+			</predicate>
+		</init>
+		<goal>
+			<and>
+				<predicate name="at">
+					<param name="ball1" />
+					<param name="roomA" />
+				</predicate>
+				<predicate name="at">
+					<param name="ball2" />
+					<param name="roomA" />
+				</predicate>
+				<predicate name="at">
+					<param name="ball3" />
+					<param name="roomA" />
+				</predicate>
+				<predicate name="at">
+					<param name="ball4" />
+					<param name="roomA" />
+				</predicate>
+			</and>
+		</goal>
+	</problem>
+	
+	<problem name="gripper6">
+		<object name="ball1" />
+		<object name="ball2" />
+		<object name="ball3" />
+		<object name="ball4" />
+		<object name="ball5" />
+		<object name="ball6" />
+		<object name="left" />
+		<object name="right" />
+		<object name="roomA" />
+		<object name="roomB" />
+		<init>
+			<predicate name="gripper">
+				<param name="left" />
+			</predicate>
+			<predicate name="gripper">
+				<param name="right" />
+			</predicate>
+			<predicate name="room">
+				<param name="roomA" />
+			</predicate>
+			<predicate name="room">
+				<param name="roomB" />
+			</predicate>
+			<predicate name="at-robby">
+				<param name="roomA" />
+			</predicate>
+			<predicate name="ball">
+				<param name="ball1" />
+			</predicate>
+			<predicate name="ball">
+				<param name="ball2" />
+			</predicate>
+			<predicate name="ball">
+				<param name="ball3" />
+			</predicate>
+			<predicate name="ball">
+				<param name="ball4" />
+			</predicate>
+			<predicate name="ball">
+				<param name="ball5" />
+			</predicate>
+			<predicate name="ball">
+				<param name="ball6" />
+			</predicate>
+			<predicate name="at">
+				<param name="ball1" />
+				<param name="roomB" />
+			</predicate>
+			<predicate name="at">
+				<param name="ball2" />
+				<param name="roomB" />
+			</predicate>
+			<predicate name="at">
+				<param name="ball3" />
+				<param name="roomB" />
+			</predicate>
+			<predicate name="at">
+				<param name="ball4" />
+				<param name="roomB" />
+			</predicate>
+			<predicate name="at">
+				<param name="ball5" />
+				<param name="roomB" />
+			</predicate>
+			<predicate name="at">
+				<param name="ball6" />
+				<param name="roomB" />
+			</predicate>
+			<predicate name="free">
+				<param name="left" />
+			</predicate>
+			<predicate name="free">
+				<param name="right" />
+			</predicate>
+		</init>
+		<goal>
+			<and>
+				<predicate name="at">
+					<param name="ball1" />
+					<param name="roomA" />
+				</predicate>
+				<predicate name="at">
+					<param name="ball2" />
+					<param name="roomA" />
+				</predicate>
+				<predicate name="at">
+					<param name="ball3" />
+					<param name="roomA" />
+				</predicate>
+				<predicate name="at">
+					<param name="ball4" />
+					<param name="roomA" />
+				</predicate>
+				<predicate name="at">
+					<param name="ball5" />
+					<param name="roomA" />
+				</predicate>
+				<predicate name="at">
+					<param name="ball6" />
+					<param name="roomA" />
+				</predicate>
+			</and>
+		</goal>
+	</problem>
+	
+	<problem name="gripper8">
+		<object name="ball1" />
+		<object name="ball2" />
+		<object name="ball3" />
+		<object name="ball4" />
+		<object name="ball5" />
+		<object name="ball6" />
+		<object name="ball7" />
+		<object name="ball8" />
+		<object name="left" />
+		<object name="right" />
+		<object name="roomA" />
+		<object name="roomB" />
+		<init>
+			<predicate name="gripper">
+				<param name="left" />
+			</predicate>
+			<predicate name="gripper">
+				<param name="right" />
+			</predicate>
+			<predicate name="room">
+				<param name="roomA" />
+			</predicate>
+			<predicate name="room">
+				<param name="roomB" />
+			</predicate>
+			<predicate name="at-robby">
+				<param name="roomA" />
+			</predicate>
+			<predicate name="ball">
+				<param name="ball1" />
+			</predicate>
+			<predicate name="ball">
+				<param name="ball2" />
+			</predicate>
+			<predicate name="ball">
+				<param name="ball3" />
+			</predicate>
+			<predicate name="ball">
+				<param name="ball4" />
+			</predicate>
+			<predicate name="ball">
+				<param name="ball5" />
+			</predicate>
+			<predicate name="ball">
+				<param name="ball6" />
+			</predicate>
+			<predicate name="ball">
+				<param name="ball7" />
+			</predicate>
+			<predicate name="ball">
+				<param name="ball8" />
+			</predicate>
+			<predicate name="at">
+				<param name="ball1" />
+				<param name="roomB" />
+			</predicate>
+			<predicate name="at">
+				<param name="ball2" />
+				<param name="roomB" />
+			</predicate>
+			<predicate name="at">
+				<param name="ball3" />
+				<param name="roomB" />
+			</predicate>
+			<predicate name="at">
+				<param name="ball4" />
+				<param name="roomB" />
+			</predicate>
+			<predicate name="at">
+				<param name="ball5" />
+				<param name="roomB" />
+			</predicate>
+			<predicate name="at">
+				<param name="ball6" />
+				<param name="roomB" />
+			</predicate>
+			<predicate name="at">
+				<param name="ball7" />
+				<param name="roomB" />
+			</predicate>
+			<predicate name="at">
+				<param name="ball8" />
+				<param name="roomB" />
+			</predicate>
+			<predicate name="free">
+				<param name="left" />
+			</predicate>
+			<predicate name="free">
+				<param name="right" />
+			</predicate>
+		</init>
+		<goal>
+			<and>
+				<predicate name="at">
+					<param name="ball1" />
+					<param name="roomA" />
+				</predicate>
+				<predicate name="at">
+					<param name="ball2" />
+					<param name="roomA" />
+				</predicate>
+				<predicate name="at">
+					<param name="ball3" />
+					<param name="roomA" />
+				</predicate>
+				<predicate name="at">
+					<param name="ball4" />
+					<param name="roomA" />
+				</predicate>
+				<predicate name="at">
+					<param name="ball5" />
+					<param name="roomA" />
+				</predicate>
+				<predicate name="at">
+					<param name="ball6" />
+					<param name="roomA" />
+				</predicate>
+				<predicate name="at">
+					<param name="ball7" />
+					<param name="roomA" />
+				</predicate>
+				<predicate name="at">
+					<param name="ball8" />
+					<param name="roomA" />
+				</predicate>
+			</and>
+		</goal>
+	</problem>
+
+</strips>
