@@ -1,0 +1,16 @@
+- Implementar
+
+Busca em árvore
+	-largura e profundidade
+Busca em grafo
+	-largura e profundidade
+	
+	
+Para uma instância, comparar para cada nível.
+	-Número de estados na fronteira
+	-Número de estados visitados
+	-Número de estados expandidos
+	
+Bonus(10)
+	Busca inversa (backwards)
+ 

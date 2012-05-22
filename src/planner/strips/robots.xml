@@ -1,0 +1,59 @@
+<strips>
+	<domain name="robots">
+		<action name="move">
+			<param name="$robot"/>
+			<param name="$from"/>
+			<param name="$to"/>
+			<precondition>
+				<predicate name="at">
+					<param name="$robot"/>
+					<param name="$from"/>
+				</predicate>
+			</precondition>
+			<effect>
+				<and>
+					<predicate name="at">
+						<param name="$robot"/>
+						<param name="$to"/>
+					</predicate>
+					<not>
+						<predicate name="at">
+							<param name="$robot"/>
+							<param name="$from"/>
+						</predicate>
+					</not>
+				</and>
+			</effect>
+		</action>
+	</domain>
+	
+	<problem name="robots1">
+		<object name="robotA"/>
+		<object name="robotB"/>
+		<object name="roomA"/>
+		<object name="roomB"/>
+		<init>
+			<predicate name="at">
+				<param name="robotA"/>
+				<param name="roomA"/>
+			</predicate>
+			<predicate name="at">
+				<param name="robotB"/>
+				<param name="roomB"/>
+			</predicate>
+		</init>
+		<goal>
+			<and>
+				<predicate name="at">
+					<param name="robotA"/>
+					<param name="roomB"/>
+				</predicate>
+				<predicate name="at">
+					<param name="robotB"/>
+					<param name="roomA"/>
+				</predicate>
+			</and>
+		</goal>
+	</problem>
+
+</strips>
