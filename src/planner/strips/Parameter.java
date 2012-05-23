@@ -20,6 +20,10 @@ public class Parameter {
 		return false;
 	}
 	
+	/**
+	 * Implementação baseada no Item 9 do livro Effective java...
+	 * 
+	 */
 	@Override
 	public int hashCode() {
 		int result = 17;

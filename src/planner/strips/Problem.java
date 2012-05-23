@@ -23,6 +23,13 @@ public class Problem extends Parametized{
 		computeActions(params, action, x);
 	}
 	
+	/**
+	 * Suporte a tipos...
+	 * 
+	 * @author Sávio Mota
+	 * 
+	 */
+	
 	private void computeActions(List<Parameter> params, Action action, int left) {
 		if (left != 0) {
 			Parameter p = action.params.get(action.params.size() - left);
@@ -43,19 +50,5 @@ public class Problem extends Parametized{
 			actions.add(a);
 		}
 	}
-	
-//	private void computeActions(List<String> params, Action action, int left) {
-//		if (left == 0) {
-//			Action a = action.copy();
-//			a.replaceParams(a.params, params);
-//			actions.add(a);
-//		} else {
-//			for (String o : objects) {
-//				List<String> newParams = new ArrayList<String>(params);
-//				newParams.add(o);
-//				computeActions(newParams,action,left-1);
-//			}
-//		}
-//	}
 	
 }

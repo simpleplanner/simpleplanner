@@ -24,6 +24,14 @@ public abstract class Parametized {
 		params = newParams;
 	}
 	
+	/**
+	 * Método criado para possibilitar o suporte a tipos 
+	 * e para facilitar a substituição dos parâmetros pelos 
+	 * respectivos objetos
+	 * 
+	 * @author Sávio Mota
+	 * 
+	 */
 	public void buildTypeMap(){
 		for (Parameter parameter : params) {
 			//Criação do mapa de tipos

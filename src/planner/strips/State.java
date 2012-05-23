@@ -50,6 +50,12 @@ public class State {
 		return false;
 	}
 
+	/**
+	 * Implementação baseada no Item 9 do livro Effective java...
+	 * 
+	 * @author Sávio Mota
+	 * 
+	 */
 	@Override
 	public int hashCode() {
 		int result = 17;
