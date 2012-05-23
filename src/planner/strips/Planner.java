@@ -6,7 +6,10 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Stack;
 
-
+/**
+ * @author <a href="mailto:saviod2@gmail.com">Sávio Mota</a>
+ * 
+ */
 public class Planner extends AbstractPlanner{
 	
 	@Override

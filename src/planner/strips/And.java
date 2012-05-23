@@ -3,6 +3,11 @@ package planner.strips;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author <a href="mailto:erickpassos@gmail.com">Erick Passos</a> 
+ * @author <a href="mailto:saviod2@gmail.com">Sávio Mota</a>
+ * 
+ */
 public class And implements Condition {
 	
 	public List<Condition> conditions = new ArrayList<Condition>();

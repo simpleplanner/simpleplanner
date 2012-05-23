@@ -15,6 +15,10 @@ import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+/**
+ * @author <a href="mailto:erickpassos@gmail.com">Erick Passos</a> 
+ * 
+ */
 public class XMLParser {
 	private String name;
 	private String content;

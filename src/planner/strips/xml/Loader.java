@@ -15,6 +15,11 @@ import planner.strips.Parametized;
 import planner.strips.Predicate;
 import planner.strips.Problem;
 
+/**
+ * @author <a href="mailto:erickpassos@gmail.com">Erick Passos</a> 
+ * @author <a href="mailto:saviod2@gmail.com">Sávio Mota</a>
+ * 
+ */
 public class Loader {
 	private Domain domain;
 	private Map<String, Problem> problems = new HashMap<String, Problem>();

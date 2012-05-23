@@ -1,5 +1,10 @@
 package planner.strips;
 
+/**
+ * @author <a href="mailto:erickpassos@gmail.com">Erick Passos</a> 
+ * @author <a href="mailto:saviod2@gmail.com">Sávio Mota</a>
+ * 
+ */
 public class Predicate extends Parametized implements Condition {
 
 	@Override

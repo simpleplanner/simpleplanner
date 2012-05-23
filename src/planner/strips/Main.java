@@ -2,6 +2,10 @@ package planner.strips;
 
 import planner.strips.xml.Loader;
 
+/**
+ * @author <a href="mailto:erickpassos@gmail.com">Erick Passos</a> 
+ * 
+ */
 public class Main {
 	
 	public static void main(String[] args) {

@@ -5,6 +5,11 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 
+/**
+ * @author <a href="mailto:erickpassos@gmail.com">Erick Passos</a> 
+ * @author <a href="mailto:saviod2@gmail.com">Sávio Mota</a>
+ * 
+ */
 public class Problem extends Parametized{
 	public State init = new State();
 	public Condition goal;

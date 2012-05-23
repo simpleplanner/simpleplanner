@@ -3,8 +3,8 @@ package planner.strips;
 import java.util.Stack;
 
 /**
- * @author Sávio Mota
- *
+ * @author <a href="mailto:saviod2@gmail.com">Sávio Mota</a>
+ * 
  */
 public abstract class AbstractPlanner {
 

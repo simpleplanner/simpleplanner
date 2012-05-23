@@ -2,6 +2,11 @@ package planner.strips;
 
 import java.util.List;
 
+/**
+ * @author <a href="mailto:erickpassos@gmail.com">Erick Passos</a> 
+ * @author <a href="mailto:saviod2@gmail.com">Sávio Mota</a>
+ * 
+ */
 public class Action extends Parametized implements Condition{
 
 	public Condition precondition;
