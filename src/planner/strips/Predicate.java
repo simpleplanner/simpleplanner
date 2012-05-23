@@ -14,14 +14,25 @@ public class Predicate extends Parametized implements Condition {
 			return true;
 		return false;
 	}
+	
+	@Override
+	public Predicate copy() {
+		Predicate copy = new Predicate();
+		copy.name = name;
+		copy.params = params;
+		return copy;
+	}
 
 	@Override
-	public boolean equals(Object other) {
-		if (other instanceof Parametized) {
-			Parametized o = (Parametized) other;
-			if (name.equals(o.name) && params.size() == o.params.size()) {
+	public boolean equals(Object obj) {
+		if (this == obj){
+			return true;
+		}
+		if (obj instanceof Parametized) {
+			Parametized other = (Parametized) obj;
+			if (name.equals(other.name) && params.size() == other.params.size()) {
 				for (int i = 0; i < params.size(); i++) {
-					if (!params.get(i).equals(o.params.get(i)))
+					if (!params.get(i).equals(other.params.get(i)))
 						return false;
 				}
 				return true;
@@ -29,19 +40,25 @@ public class Predicate extends Parametized implements Condition {
 		}
 		return false;
 	}
-
+	
+	/**
+	 * Implementação baseada no Item 9 do livro Effective java...
+	 * 
+	 * @author Sávio Mota
+	 * 
+	 */
 	@Override
-	public Predicate copy() {
-		Predicate copy = new Predicate();
-		copy.name = name;
-		copy.params.addAll(params);
-		return copy;
+	public int hashCode() {
+		int result = 17;
+		result = 31 * result + name.hashCode();
+		result = 31 * result + params.hashCode();
+		return result;
 	}
 
 	@Override
 	public String toString() {
 		String retorno = "(" + name;
-		for (String p : params) {
+		for (Parameter p : params) {
 			retorno += " " + p;
 		}
 		retorno += ")";

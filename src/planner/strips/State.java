@@ -15,10 +15,8 @@ public class State {
 	}
 
 	public Parametized findSame(Predicate predicate) {
-		for (Parametized p : predicates) {
-			if (predicate.equals(p)){
-				return p;
-			}
+		if (predicates.contains(predicate)){
+			return predicate;
 		}
 		return null;
 	}
@@ -41,15 +39,32 @@ public class State {
 	}
 	
 	@Override
-	public boolean equals(Object other) {
-		if (other.getClass().equals(State.class)){
-			State o = (State) other;
-			//System.out.println(predicates);
-			//System.out.println(o.predicates);
-			if (o.predicates.containsAll(predicates) && predicates.containsAll(o.predicates))
-				return true;
+	public boolean equals(Object obj) {
+		if (this == obj){
+			return true;
+		}
+		if (obj instanceof State){
+			State other = (State) obj;
+			return (predicates.size() == other.predicates.size() && predicates.containsAll(other.predicates));
 		}
 		return false;
 	}
 
+	/**
+	 * Implementação baseada no Item 9 do livro Effective java...
+	 * 
+	 * @author Sávio Mota
+	 * 
+	 */
+	@Override
+	public int hashCode() {
+		int result = 17;
+		result = 31 * result + predicates.hashCode();
+		return result;
+	}
+	
+	@Override
+	public String toString() {
+		return predicates.toString();
+	}
 }

@@ -25,7 +25,7 @@ public class And implements Condition {
 		return true;
 	}
 
-	public void replaceParams(List<String> oldNames, List<String> newNames) {
+	public void replaceParams(List<Parameter> oldNames, List<Parameter> newNames) {
 		for (Condition c : conditions) {
 			c.replaceParams(oldNames,newNames);
 		}

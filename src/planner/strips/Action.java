@@ -7,7 +7,7 @@ public class Action extends Parametized implements Condition{
 	public Condition precondition;
 	public Condition effects;
 	
-	public void replaceParams(List<String> oldNames, List<String> newNames){
+	public void replaceParams(List<Parameter> oldNames, List<Parameter> newNames){
 		precondition.replaceParams(params,newNames);
 		effects.replaceParams(params,newNames);
 		super.replaceParams(oldNames, newNames);
@@ -26,7 +26,7 @@ public class Action extends Parametized implements Condition{
 	public Action copy(){
 		Action copy = new Action();
 		copy.name = name;
-		copy.params.addAll(params);
+		copy.params = params;
 		copy.precondition = precondition.copy();
 		copy.effects = effects.copy();
 		return copy;
@@ -35,11 +35,10 @@ public class Action extends Parametized implements Condition{
 	@Override
 	public String toString() {
 		String retorno = "("+name;
-		for (String p : params) {
-			retorno += " "+p;
+		for (Parameter parameter : params) {
+			retorno += " "+ parameter;
 		}
-		retorno +=")\n";
-		retorno += "[pre:" + precondition + " eff: " + effects+"]";
+		retorno +=")";
 		return retorno; 
 	}
 }

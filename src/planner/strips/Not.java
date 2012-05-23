@@ -21,7 +21,7 @@ public class Not implements Condition {
 	}
 
 	@Override
-	public void replaceParams(List<String> oldNames,List<String> newNames) {
+	public void replaceParams(List<Parameter> oldNames,List<Parameter> newNames) {
 		predicate.replaceParams(oldNames,newNames);
 	}
 
