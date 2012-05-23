@@ -7,6 +7,11 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * @author <a href="mailto:erickpassos@gmail.com">Erick Passos</a> 
+ * @author <a href="mailto:saviod2@gmail.com">Sávio Mota</a>
+ * 
+ */
 public abstract class Parametized {
 
 	public String name;

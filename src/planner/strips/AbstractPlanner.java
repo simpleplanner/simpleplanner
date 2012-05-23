@@ -3,8 +3,8 @@ package planner.strips;
 import java.util.Stack;
 
 /**
- * @author Sávio Mota
- *
+ * @author <a href="mailto:saviod2@gmail.com">Sávio Mota</a>
+ * 
  */
 public abstract class AbstractPlanner {
 
@@ -20,8 +20,11 @@ public abstract class AbstractPlanner {
 			actionStack.add(solution.cause);
 			solution = solution.last;
 		}
+		System.out.println("\nSOLUTION FOUND:");
+		System.out.println("======================================================");
 		while (!actionStack.empty()) {
 			System.out.println("Action: "+actionStack.pop());
 		}
+		System.out.println("======================================================\n");
 	}
 }

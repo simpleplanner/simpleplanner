@@ -1,8 +1,8 @@
 package planner.strips;
 
 /**
- * @author Sávio Mota
- *
+ * @author <a href="mailto:saviod2@gmail.com">Sávio Mota</a>
+ * 
  */
 public class Parameter {
 	public String name;

@@ -3,6 +3,11 @@ package planner.strips;
 import java.util.Collection;
 import java.util.HashSet;
 
+/**
+ * @author <a href="mailto:erickpassos@gmail.com">Erick Passos</a> 
+ * @author <a href="mailto:saviod2@gmail.com">Sávio Mota</a>
+ * 
+ */
 public class State {
 	public Collection<Predicate> predicates = new HashSet<Predicate>();
 	public State last;
