@@ -1,12 +1,22 @@
 package planner.strips;
 
+import java.util.List;
+
 /**
  * @author <a href="mailto:erickpassos@gmail.com">Erick Passos</a> 
  * @author <a href="mailto:saviod2@gmail.com">Sávio Mota</a>
  * 
  */
 public class Predicate extends Parametized implements Condition {
-
+	
+	public Predicate() {
+	}
+	
+	public Predicate(String name, List<Parameter> params) {
+		this.name = name;
+		this.params = params;
+	}
+	
 	@Override
 	public State apply(State s) {
 		State novo = s.copy();

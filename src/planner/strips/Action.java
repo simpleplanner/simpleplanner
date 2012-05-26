@@ -12,6 +12,16 @@ public class Action extends Parametized implements Condition{
 	public Condition precondition;
 	public Condition effects;
 	
+	public Action() {
+	}
+	
+	public Action(String name, List<Parameter> params, Condition precondition, Condition effects) {
+		this.name = name;
+		this.params = params;
+		this.precondition = precondition;
+		this.effects = effects;
+	}
+	
 	public void replaceParams(List<Parameter> oldNames, List<Parameter> newNames){
 		precondition.replaceParams(params,newNames);
 		effects.replaceParams(params,newNames);
@@ -39,11 +49,11 @@ public class Action extends Parametized implements Condition{
 	
 	@Override
 	public String toString() {
-		String retorno = "("+name;
+		StringBuilder retorno = new StringBuilder("(:action "+name);
 		for (Parameter parameter : params) {
-			retorno += " "+ parameter;
+			retorno.append(" "+ parameter);
 		}
-		retorno +=")";
-		return retorno; 
+		retorno.append(")");
+		return retorno.toString(); 
 	}
 }

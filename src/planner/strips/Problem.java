@@ -38,15 +38,15 @@ public class Problem extends Parametized{
 	private void computeActions(List<Parameter> params, Action action, int left) {
 		if (left != 0) {
 			Parameter p = action.params.get(action.params.size() - left);
-			if (typeMap.containsKey(p.type)){
-				Collection<Parameter> ps = typeMap.get(p.type);
+			if (typeMap.containsKey(p.type.name)){
+				Collection<Parameter> ps = typeMap.get(p.type.name);
 				for (Parameter parameter : ps) {
 					List<Parameter> newParams = new ArrayList<Parameter>(params);
 					newParams.add(parameter);
 					computeActions(newParams,action,left-1);
 				}
 			}else{
-				System.out.println("Nenhum objeto do tipo " + p.type.toUpperCase() + " foi declarado.");
+				System.out.println("Nenhum objeto do tipo " + p.type.name.toUpperCase() + " foi declarado.");
 				System.exit(0);
 			}
 		} else {
