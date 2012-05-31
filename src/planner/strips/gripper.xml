@@ -11,6 +11,11 @@
 					<predicate name="at-robby">
 						<param name="$from"/>
 					</predicate>
+					<not>
+						<predicate name="at-robby">
+							<param name="$to"/>
+						</predicate>
+					</not>
 				</and>
 			</precondition>
 			<effect>

@@ -7,6 +7,8 @@ package planner.strips;
  */
 public class Predicate extends Parametized implements Condition {
 
+	private Integer hashCode;
+
 	@Override
 	public State apply(State s) {
 		State novo = s.copy();
@@ -54,10 +56,13 @@ public class Predicate extends Parametized implements Condition {
 	 */
 	@Override
 	public int hashCode() {
-		int result = 17;
-		result = 31 * result + name.hashCode();
-		result = 31 * result + params.hashCode();
-		return result;
+		if (hashCode == null){
+			int result = 17;
+			result = 31 * result + name.hashCode();
+			result = 31 * result + params.hashCode();
+			hashCode = result;
+		}
+		return hashCode;
 	}
 
 	@Override

@@ -12,6 +12,7 @@ public class State {
 	public Collection<Predicate> predicates = new HashSet<Predicate>();
 	public State last;
 	public Action cause;
+	private Integer hashCode;
 
 	public State copy() {
 		State novo = new State();
@@ -63,9 +64,12 @@ public class State {
 	 */
 	@Override
 	public int hashCode() {
-		int result = 17;
-		result = 31 * result + predicates.hashCode();
-		return result;
+		if (hashCode == null){
+			int result = 17;
+			result = 31 * result + predicates.hashCode();
+			hashCode = result;
+		}
+		return hashCode;
 	}
 	
 	@Override
