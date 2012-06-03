@@ -3,10 +3,8 @@ package planner.strips.pddl.parser;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 
 import org.antlr.runtime.ANTLRFileStream;
 import org.antlr.runtime.CommonTokenStream;
@@ -21,25 +19,24 @@ import planner.strips.Domain;
 import planner.strips.Not;
 import planner.strips.Parameter;
 import planner.strips.Predicate;
-import planner.strips.Problem;
 import planner.strips.Type;
 
 /**
  * @author <a href="mailto:saviod2@gmail.com">Sávio Mota</a>
  * 
  */
-public class PDDLLoader {
+public class PDDLDomainLoader {
 	protected CommonTree rootTree;
 	private final String file;
 	private Domain domain;
-	private Map<String, Problem> problems = new HashMap<String, Problem>();
 	public Collection<String> types = new HashSet<String>();
 
-	public PDDLLoader(String file) {
+	public PDDLDomainLoader(String file) throws PDDLSyntaxException, IOException {
 		this.file = file;
+		buildTree();
 	}
 
-	public void buildTree() throws PDDLSyntaxException, IOException {
+	private void buildTree() throws PDDLSyntaxException, IOException {
 		PddlLexer lex = new PddlLexer(new ANTLRFileStream(file));
 		CommonTokenStream tokens = new CommonTokenStream(lex);
 
@@ -113,9 +110,10 @@ public class PDDLLoader {
 		for (int i = 0; i < types.getChildCount(); i++) {
 			final Tree type = types.getChild(i);
 			if (type.getChildCount() != 0) {
+				String typeName = type.getText();
 				String parentTypeName = type.getChild(0).getText();
                 Type parentType = domain.types.get(parentTypeName);
-                domain.types.put(parentTypeName, new Type(parentTypeName, parentType));
+                domain.types.put(typeName, new Type(typeName, parentType));
 			}
 		}
 	}
@@ -168,7 +166,6 @@ public class PDDLLoader {
         for (int i = 1; i < tree.getChildCount(); i++) {
             final Tree child = tree.getChild(i);
             final int type = child.getType();
-            //Esta passando tudo logo no addParameteres (tudo = effects e preconditions)
             switch (type) {
                 case PddlLexer.VARIABLE:
                     a.params.add(addParameter(child));

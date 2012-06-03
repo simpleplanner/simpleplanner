@@ -1,6 +1,7 @@
 (define (domain Blocks)
 (:requirements :fluents)
-
+(:types savio - object)
+  
 (:predicates (handempty)
 	     (clear ?b)
 	     (on ?a ?b)
