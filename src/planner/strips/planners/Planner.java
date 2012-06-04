@@ -1,10 +1,13 @@
-package planner.strips;
+package planner.strips.planners;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Stack;
+
+import planner.strips.Problem;
+import planner.strips.State;
 
 /**
  * @author <a href="mailto:saviod2@gmail.com">Sávio Mota</a>

@@ -1,4 +1,4 @@
-package planner.strips.pddl.parser;
+package planner.strips.pddl;
 
 import org.antlr.runtime.BaseRecognizer;
 import org.antlr.runtime.CharStream;
@@ -9,7 +9,7 @@ import org.antlr.runtime.MismatchedSetException;
 import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.RecognizerSharedState;
 
-public class PddlLexer extends Lexer {
+public class PDDLLexer extends Lexer {
     public static final int REQUIRE_KEY=45;
     public static final int FUNCTIONS=10;
     public static final int LETTER=48;
@@ -131,11 +131,11 @@ public class PddlLexer extends Lexer {
     // delegates
     // delegators
 
-    public PddlLexer() {;} 
-    public PddlLexer(CharStream input) {
+    public PDDLLexer() {;} 
+    public PDDLLexer(CharStream input) {
         this(input, new RecognizerSharedState());
     }
-    public PddlLexer(CharStream input, RecognizerSharedState state) {
+    public PDDLLexer(CharStream input, RecognizerSharedState state) {
         super(input,state);
 
     }

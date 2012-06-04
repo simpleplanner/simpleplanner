@@ -1,6 +1,6 @@
 (define (problem blocks1)
     (:domain Blocks)
-    (:objects a - savio b c)
+    (:objects a b c)
     (:init (ontable a)
 	   (on b a)
            (on c b)

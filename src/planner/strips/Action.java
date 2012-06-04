@@ -49,11 +49,11 @@ public class Action extends Parametized implements Condition{
 	
 	@Override
 	public String toString() {
-		StringBuilder retorno = new StringBuilder("(:action "+name);
+		String retorno = "("+name;
 		for (Parameter parameter : params) {
-			retorno.append(" "+ parameter);
+			retorno += " "+ parameter;
 		}
-		retorno.append(")");
-		return retorno.toString(); 
+		retorno +=")";
+		return retorno; 
 	}
 }

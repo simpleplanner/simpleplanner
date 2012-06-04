@@ -1,4 +1,4 @@
-package planner.strips.pddl.parser;
+package planner.strips.pddl;
 
 public class PDDLParseException extends Exception {
 	private static final long serialVersionUID = -479124650511858507L;

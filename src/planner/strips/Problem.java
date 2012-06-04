@@ -17,6 +17,7 @@ public class Problem extends Parametized{
 	public Collection<Action> actions = new HashSet<Action>();
 
 	public void computeActions() {
+		buildTypeMap();
 		for (Action action : domain.actions) {
 			computeAllActions(action);
 		}
@@ -56,4 +57,22 @@ public class Problem extends Parametized{
 		}
 	}
 	
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder("(define (problem " + name + ")\n");
+		builder.append("	(:domain " + domain.name);
+		builder.append(")\n	(:objects ");
+		for (Parameter p : params) {
+			builder.append(p.name + " - " + p.type);
+		}
+		builder.append("	)\n	(:init\n");
+		for (Predicate p : init.predicates) {
+			builder.append("		" + p + "\n");
+		}
+		builder.append("	)\n	(:goal " + goal);
+		builder.append("	)\n");
+		builder.append(")");
+		
+		return builder.toString();
+	}
 }

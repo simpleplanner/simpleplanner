@@ -46,6 +46,6 @@ public class Parameter {
 	
 	@Override
 	public String toString() {
-		return name + (type != null ? (" - " + type.name) : "");
+		return name;
 	}
 }

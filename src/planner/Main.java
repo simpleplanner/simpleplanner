@@ -1,5 +1,8 @@
-package planner.strips;
+package planner;
 
+import planner.strips.Problem;
+import planner.strips.planners.AbstractPlanner;
+import planner.strips.planners.Planner;
 import planner.strips.xml.Loader;
 
 /**
@@ -12,7 +15,7 @@ public class Main {
 		AbstractPlanner planner = new Planner();
 		
 		Loader l = new Loader();
-		l.load("src/planner/strips/gripper.xml");
+		l.load("example/gripper.xml");
 		Problem p = l.problem("gripper8");
 		
 		long time1 = System.nanoTime();

@@ -1,6 +1,10 @@
-package planner.strips;
+package planner.strips.planners;
 
 import java.util.Stack;
+
+import planner.strips.Action;
+import planner.strips.Problem;
+import planner.strips.State;
 
 /**
  * @author <a href="mailto:saviod2@gmail.com">Sávio Mota</a>

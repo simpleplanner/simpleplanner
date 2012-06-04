@@ -1,4 +1,4 @@
-package planner.strips.pddl.parser;
+package planner.strips.pddl;
 
 
 import org.antlr.runtime.BaseRecognizer;
@@ -20,15 +20,7 @@ import org.antlr.runtime.tree.RewriteRuleSubtreeStream;
 import org.antlr.runtime.tree.RewriteRuleTokenStream;
 import org.antlr.runtime.tree.TreeAdaptor;
 
-/**
- * PDDL grammar for ANTLR v3
- * Zeyn Saigol
- * School of Computer Science
- * University of Birmingham
- *
- * $Id: Pddl.g 120 2008-10-02 14:59:50Z zas $
- */
-public class PddlParser extends Parser {
+public class PDDLParser extends Parser {
     public static final String[] tokenNames = new String[] {
         "<invalid>", "<EOR>", "<DOWN>", "<UP>", "DOMAIN", "DOMAIN_NAME", "REQUIREMENTS", "TYPES", "EITHER_TYPE", "CONSTANTS", "FUNCTIONS", "PREDICATES", "ACTION", "DURATIVE_ACTION", "PROBLEM", "PROBLEM_NAME", "PROBLEM_DOMAIN", "OBJECTS", "INIT", "FUNC_HEAD", "PRECONDITION", "EFFECT", "AND_GD", "OR_GD", "NOT_GD", "IMPLY_GD", "EXISTS_GD", "FORALL_GD", "COMPARISON_GD", "AND_EFFECT", "FORALL_EFFECT", "WHEN_EFFECT", "ASSIGN_EFFECT", "NOT_EFFECT", "PRED_HEAD", "GOAL", "BINARY_OP", "UNARY_MINUS", "INIT_EQ", "INIT_AT", "NOT_PRED_INIT", "PRED_INST", "PROBLEM_CONSTRAINT", "PROBLEM_METRIC", "NAME", "REQUIRE_KEY", "VARIABLE", "NUMBER", "LETTER", "ANY_CHAR", "DIGIT", "LINE_COMMENT", "WHITESPACE", "'('", "'define'", "')'", "'domain'", "':requirements'", "':types'", "'-'", "'either'", "':functions'", "'number'", "':constants'", "':predicates'", "':constraints'", "':action'", "':parameters'", "':precondition'", "':effect'", "'and'", "'or'", "'not'", "'imply'", "'exists'", "'forall'", "':durative-action'", "':duration'", "':condition'", "'preference'", "'at'", "'over'", "'start'", "'end'", "'all'", "':derived'", "'when'", "'*'", "'+'", "'/'", "'>'", "'<'", "'='", "'>='", "'<='", "'assign'", "'scale-up'", "'scale-down'", "'increase'", "'decrease'", "'?duration'", "'problem'", "':domain'", "':objects'", "':init'", "':goal'", "':metric'", "'minimize'", "'maximize'", "'total-time'", "'is-violated'", "'always'", "'sometime'", "'within'", "'at-most-once'", "'sometime-after'", "'sometime-before'", "'always-within'", "'hold-during'", "'hold-after'"
     };
@@ -154,10 +146,10 @@ public class PddlParser extends Parser {
     // delegators
 
 
-        public PddlParser(TokenStream input) {
+        public PDDLParser(TokenStream input) {
             this(input, new RecognizerSharedState());
         }
-        public PddlParser(TokenStream input, RecognizerSharedState state) {
+        public PDDLParser(TokenStream input, RecognizerSharedState state) {
             super(input, state);
              
         }
@@ -171,7 +163,7 @@ public class PddlParser extends Parser {
         return adaptor;
     }
 
-    public String[] getTokenNames() { return PddlParser.tokenNames; }
+    public String[] getTokenNames() { return PDDLParser.tokenNames; }
     public String getGrammarFileName() { return "D:\\Java\\Lib\\antlr\\abcl-bin-1.0.1\\examples-v3\\java\\pddl\\Pddl.g"; }
 
 
@@ -192,15 +184,15 @@ public class PddlParser extends Parser {
 
     // $ANTLR start "pddlDoc"
     // D:\\Java\\Lib\\antlr\\abcl-bin-1.0.1\\examples-v3\\java\\pddl\\Pddl.g:85:1: pddlDoc : ( domain | problem );
-    public final PddlParser.pddlDoc_return pddlDoc() throws RecognitionException {
-        PddlParser.pddlDoc_return retval = new PddlParser.pddlDoc_return();
+    public final PDDLParser.pddlDoc_return pddlDoc() throws RecognitionException {
+        PDDLParser.pddlDoc_return retval = new PDDLParser.pddlDoc_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
 
-        PddlParser.domain_return domain1 = null;
+        PDDLParser.domain_return domain1 = null;
 
-        PddlParser.problem_return problem2 = null;
+        PDDLParser.problem_return problem2 = null;
 
 
 
@@ -313,8 +305,8 @@ public class PddlParser extends Parser {
 
     // $ANTLR start "domain"
     // D:\\Java\\Lib\\antlr\\abcl-bin-1.0.1\\examples-v3\\java\\pddl\\Pddl.g:89:1: domain : '(' 'define' domainName ( requireDef )? ( typesDef )? ( constantsDef )? ( predicatesDef )? ( functionsDef )? ( constraints )? ( structureDef )* ')' -> ^( DOMAIN domainName ( requireDef )? ( typesDef )? ( constantsDef )? ( predicatesDef )? ( functionsDef )? ( constraints )? ( structureDef )* ) ;
-    public final PddlParser.domain_return domain() throws RecognitionException {
-        PddlParser.domain_return retval = new PddlParser.domain_return();
+    public final PDDLParser.domain_return domain() throws RecognitionException {
+        PDDLParser.domain_return retval = new PDDLParser.domain_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
@@ -322,21 +314,21 @@ public class PddlParser extends Parser {
         Token char_literal3=null;
         Token string_literal4=null;
         Token char_literal13=null;
-        PddlParser.domainName_return domainName5 = null;
+        PDDLParser.domainName_return domainName5 = null;
 
-        PddlParser.requireDef_return requireDef6 = null;
+        PDDLParser.requireDef_return requireDef6 = null;
 
-        PddlParser.typesDef_return typesDef7 = null;
+        PDDLParser.typesDef_return typesDef7 = null;
 
-        PddlParser.constantsDef_return constantsDef8 = null;
+        PDDLParser.constantsDef_return constantsDef8 = null;
 
-        PddlParser.predicatesDef_return predicatesDef9 = null;
+        PDDLParser.predicatesDef_return predicatesDef9 = null;
 
-        PddlParser.functionsDef_return functionsDef10 = null;
+        PDDLParser.functionsDef_return functionsDef10 = null;
 
-        PddlParser.constraints_return constraints11 = null;
+        PDDLParser.constraints_return constraints11 = null;
 
-        PddlParser.structureDef_return structureDef12 = null;
+        PDDLParser.structureDef_return structureDef12 = null;
 
 
         Object char_literal3_tree=null;
@@ -664,8 +656,8 @@ public class PddlParser extends Parser {
 
     // $ANTLR start "domainName"
     // D:\\Java\\Lib\\antlr\\abcl-bin-1.0.1\\examples-v3\\java\\pddl\\Pddl.g:106:1: domainName : '(' 'domain' NAME ')' -> ^( DOMAIN_NAME NAME ) ;
-    public final PddlParser.domainName_return domainName() throws RecognitionException {
-        PddlParser.domainName_return retval = new PddlParser.domainName_return();
+    public final PDDLParser.domainName_return domainName() throws RecognitionException {
+        PDDLParser.domainName_return retval = new PDDLParser.domainName_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
@@ -758,8 +750,8 @@ public class PddlParser extends Parser {
 
     // $ANTLR start "requireDef"
     // D:\\Java\\Lib\\antlr\\abcl-bin-1.0.1\\examples-v3\\java\\pddl\\Pddl.g:111:1: requireDef : '(' ':requirements' ( REQUIRE_KEY )+ ')' -> ^( REQUIREMENTS ( REQUIRE_KEY )+ ) ;
-    public final PddlParser.requireDef_return requireDef() throws RecognitionException {
-        PddlParser.requireDef_return retval = new PddlParser.requireDef_return();
+    public final PDDLParser.requireDef_return requireDef() throws RecognitionException {
+        PDDLParser.requireDef_return retval = new PDDLParser.requireDef_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
@@ -889,8 +881,8 @@ public class PddlParser extends Parser {
 
     // $ANTLR start "typesDef"
     // D:\\Java\\Lib\\antlr\\abcl-bin-1.0.1\\examples-v3\\java\\pddl\\Pddl.g:116:1: typesDef : '(' ':types' typedNameList ')' -> ^( TYPES typedNameList ) ;
-    public final PddlParser.typesDef_return typesDef() throws RecognitionException {
-        PddlParser.typesDef_return retval = new PddlParser.typesDef_return();
+    public final PDDLParser.typesDef_return typesDef() throws RecognitionException {
+        PDDLParser.typesDef_return retval = new PDDLParser.typesDef_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
@@ -898,7 +890,7 @@ public class PddlParser extends Parser {
         Token char_literal22=null;
         Token string_literal23=null;
         Token char_literal25=null;
-        PddlParser.typedNameList_return typedNameList24 = null;
+        PDDLParser.typedNameList_return typedNameList24 = null;
 
 
         Object char_literal22_tree=null;
@@ -985,15 +977,15 @@ public class PddlParser extends Parser {
 
     // $ANTLR start "typedNameList"
     // D:\\Java\\Lib\\antlr\\abcl-bin-1.0.1\\examples-v3\\java\\pddl\\Pddl.g:122:1: typedNameList : ( ( NAME )* | ( singleTypeNameList )+ ( NAME )* ) ;
-    public final PddlParser.typedNameList_return typedNameList() throws RecognitionException {
-        PddlParser.typedNameList_return retval = new PddlParser.typedNameList_return();
+    public final PDDLParser.typedNameList_return typedNameList() throws RecognitionException {
+        PDDLParser.typedNameList_return retval = new PDDLParser.typedNameList_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
 
         Token NAME26=null;
         Token NAME28=null;
-        PddlParser.singleTypeNameList_return singleTypeNameList27 = null;
+        PDDLParser.singleTypeNameList_return singleTypeNameList27 = null;
 
 
         Object NAME26_tree=null;
@@ -1142,15 +1134,15 @@ public class PddlParser extends Parser {
 
     // $ANTLR start "singleTypeNameList"
     // D:\\Java\\Lib\\antlr\\abcl-bin-1.0.1\\examples-v3\\java\\pddl\\Pddl.g:126:1: singleTypeNameList : ( ( NAME )+ '-' t= type ) -> ( ^( NAME $t) )+ ;
-    public final PddlParser.singleTypeNameList_return singleTypeNameList() throws RecognitionException {
-        PddlParser.singleTypeNameList_return retval = new PddlParser.singleTypeNameList_return();
+    public final PDDLParser.singleTypeNameList_return singleTypeNameList() throws RecognitionException {
+        PDDLParser.singleTypeNameList_return retval = new PDDLParser.singleTypeNameList_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
 
         Token NAME29=null;
         Token char_literal30=null;
-        PddlParser.type_return t = null;
+        PDDLParser.type_return t = null;
 
 
         Object NAME29_tree=null;
@@ -1277,8 +1269,8 @@ public class PddlParser extends Parser {
 
     // $ANTLR start "type"
     // D:\\Java\\Lib\\antlr\\abcl-bin-1.0.1\\examples-v3\\java\\pddl\\Pddl.g:131:1: type : ( ( '(' 'either' ( primType )+ ')' ) -> ^( EITHER_TYPE ( primType )+ ) | primType );
-    public final PddlParser.type_return type() throws RecognitionException {
-        PddlParser.type_return retval = new PddlParser.type_return();
+    public final PDDLParser.type_return type() throws RecognitionException {
+        PDDLParser.type_return retval = new PDDLParser.type_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
@@ -1286,9 +1278,9 @@ public class PddlParser extends Parser {
         Token char_literal31=null;
         Token string_literal32=null;
         Token char_literal34=null;
-        PddlParser.primType_return primType33 = null;
+        PDDLParser.primType_return primType33 = null;
 
-        PddlParser.primType_return primType35 = null;
+        PDDLParser.primType_return primType35 = null;
 
 
         Object char_literal31_tree=null;
@@ -1452,8 +1444,8 @@ public class PddlParser extends Parser {
 
     // $ANTLR start "primType"
     // D:\\Java\\Lib\\antlr\\abcl-bin-1.0.1\\examples-v3\\java\\pddl\\Pddl.g:137:1: primType : NAME ;
-    public final PddlParser.primType_return primType() throws RecognitionException {
-        PddlParser.primType_return retval = new PddlParser.primType_return();
+    public final PDDLParser.primType_return primType() throws RecognitionException {
+        PDDLParser.primType_return retval = new PDDLParser.primType_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
@@ -1503,8 +1495,8 @@ public class PddlParser extends Parser {
 
     // $ANTLR start "functionsDef"
     // D:\\Java\\Lib\\antlr\\abcl-bin-1.0.1\\examples-v3\\java\\pddl\\Pddl.g:139:1: functionsDef : '(' ':functions' functionList ')' -> ^( FUNCTIONS functionList ) ;
-    public final PddlParser.functionsDef_return functionsDef() throws RecognitionException {
-        PddlParser.functionsDef_return retval = new PddlParser.functionsDef_return();
+    public final PDDLParser.functionsDef_return functionsDef() throws RecognitionException {
+        PDDLParser.functionsDef_return retval = new PDDLParser.functionsDef_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
@@ -1512,7 +1504,7 @@ public class PddlParser extends Parser {
         Token char_literal37=null;
         Token string_literal38=null;
         Token char_literal40=null;
-        PddlParser.functionList_return functionList39 = null;
+        PDDLParser.functionList_return functionList39 = null;
 
 
         Object char_literal37_tree=null;
@@ -1599,16 +1591,16 @@ public class PddlParser extends Parser {
 
     // $ANTLR start "functionList"
     // D:\\Java\\Lib\\antlr\\abcl-bin-1.0.1\\examples-v3\\java\\pddl\\Pddl.g:144:1: functionList : ( ( atomicFunctionSkeleton )+ ( '-' functionType )? )* ;
-    public final PddlParser.functionList_return functionList() throws RecognitionException {
-        PddlParser.functionList_return retval = new PddlParser.functionList_return();
+    public final PDDLParser.functionList_return functionList() throws RecognitionException {
+        PDDLParser.functionList_return retval = new PDDLParser.functionList_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
 
         Token char_literal42=null;
-        PddlParser.atomicFunctionSkeleton_return atomicFunctionSkeleton41 = null;
+        PDDLParser.atomicFunctionSkeleton_return atomicFunctionSkeleton41 = null;
 
-        PddlParser.functionType_return functionType43 = null;
+        PDDLParser.functionType_return functionType43 = null;
 
 
         Object char_literal42_tree=null;
@@ -1743,17 +1735,17 @@ public class PddlParser extends Parser {
 
     // $ANTLR start "atomicFunctionSkeleton"
     // D:\\Java\\Lib\\antlr\\abcl-bin-1.0.1\\examples-v3\\java\\pddl\\Pddl.g:148:1: atomicFunctionSkeleton : '(' functionSymbol typedVariableList ')' ;
-    public final PddlParser.atomicFunctionSkeleton_return atomicFunctionSkeleton() throws RecognitionException {
-        PddlParser.atomicFunctionSkeleton_return retval = new PddlParser.atomicFunctionSkeleton_return();
+    public final PDDLParser.atomicFunctionSkeleton_return atomicFunctionSkeleton() throws RecognitionException {
+        PDDLParser.atomicFunctionSkeleton_return retval = new PDDLParser.atomicFunctionSkeleton_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
 
         Token char_literal44=null;
         Token char_literal47=null;
-        PddlParser.functionSymbol_return functionSymbol45 = null;
+        PDDLParser.functionSymbol_return functionSymbol45 = null;
 
-        PddlParser.typedVariableList_return typedVariableList46 = null;
+        PDDLParser.typedVariableList_return typedVariableList46 = null;
 
 
         Object char_literal44_tree=null;
@@ -1809,8 +1801,8 @@ public class PddlParser extends Parser {
 
     // $ANTLR start "functionSymbol"
     // D:\\Java\\Lib\\antlr\\abcl-bin-1.0.1\\examples-v3\\java\\pddl\\Pddl.g:152:1: functionSymbol : NAME ;
-    public final PddlParser.functionSymbol_return functionSymbol() throws RecognitionException {
-        PddlParser.functionSymbol_return retval = new PddlParser.functionSymbol_return();
+    public final PDDLParser.functionSymbol_return functionSymbol() throws RecognitionException {
+        PDDLParser.functionSymbol_return retval = new PDDLParser.functionSymbol_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
@@ -1860,8 +1852,8 @@ public class PddlParser extends Parser {
 
     // $ANTLR start "functionType"
     // D:\\Java\\Lib\\antlr\\abcl-bin-1.0.1\\examples-v3\\java\\pddl\\Pddl.g:154:1: functionType : 'number' ;
-    public final PddlParser.functionType_return functionType() throws RecognitionException {
-        PddlParser.functionType_return retval = new PddlParser.functionType_return();
+    public final PDDLParser.functionType_return functionType() throws RecognitionException {
+        PDDLParser.functionType_return retval = new PDDLParser.functionType_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
@@ -1911,8 +1903,8 @@ public class PddlParser extends Parser {
 
     // $ANTLR start "constantsDef"
     // D:\\Java\\Lib\\antlr\\abcl-bin-1.0.1\\examples-v3\\java\\pddl\\Pddl.g:156:1: constantsDef : '(' ':constants' typedNameList ')' -> ^( CONSTANTS typedNameList ) ;
-    public final PddlParser.constantsDef_return constantsDef() throws RecognitionException {
-        PddlParser.constantsDef_return retval = new PddlParser.constantsDef_return();
+    public final PDDLParser.constantsDef_return constantsDef() throws RecognitionException {
+        PDDLParser.constantsDef_return retval = new PDDLParser.constantsDef_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
@@ -1920,7 +1912,7 @@ public class PddlParser extends Parser {
         Token char_literal50=null;
         Token string_literal51=null;
         Token char_literal53=null;
-        PddlParser.typedNameList_return typedNameList52 = null;
+        PDDLParser.typedNameList_return typedNameList52 = null;
 
 
         Object char_literal50_tree=null;
@@ -2007,8 +1999,8 @@ public class PddlParser extends Parser {
 
     // $ANTLR start "predicatesDef"
     // D:\\Java\\Lib\\antlr\\abcl-bin-1.0.1\\examples-v3\\java\\pddl\\Pddl.g:161:1: predicatesDef : '(' ':predicates' ( atomicFormulaSkeleton )+ ')' -> ^( PREDICATES ( atomicFormulaSkeleton )+ ) ;
-    public final PddlParser.predicatesDef_return predicatesDef() throws RecognitionException {
-        PddlParser.predicatesDef_return retval = new PddlParser.predicatesDef_return();
+    public final PDDLParser.predicatesDef_return predicatesDef() throws RecognitionException {
+        PDDLParser.predicatesDef_return retval = new PDDLParser.predicatesDef_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
@@ -2016,7 +2008,7 @@ public class PddlParser extends Parser {
         Token char_literal54=null;
         Token string_literal55=null;
         Token char_literal57=null;
-        PddlParser.atomicFormulaSkeleton_return atomicFormulaSkeleton56 = null;
+        PDDLParser.atomicFormulaSkeleton_return atomicFormulaSkeleton56 = null;
 
 
         Object char_literal54_tree=null;
@@ -2140,17 +2132,17 @@ public class PddlParser extends Parser {
 
     // $ANTLR start "atomicFormulaSkeleton"
     // D:\\Java\\Lib\\antlr\\abcl-bin-1.0.1\\examples-v3\\java\\pddl\\Pddl.g:166:1: atomicFormulaSkeleton : '(' predicate typedVariableList ')' ;
-    public final PddlParser.atomicFormulaSkeleton_return atomicFormulaSkeleton() throws RecognitionException {
-        PddlParser.atomicFormulaSkeleton_return retval = new PddlParser.atomicFormulaSkeleton_return();
+    public final PDDLParser.atomicFormulaSkeleton_return atomicFormulaSkeleton() throws RecognitionException {
+        PDDLParser.atomicFormulaSkeleton_return retval = new PDDLParser.atomicFormulaSkeleton_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
 
         Token char_literal58=null;
         Token char_literal61=null;
-        PddlParser.predicate_return predicate59 = null;
+        PDDLParser.predicate_return predicate59 = null;
 
-        PddlParser.typedVariableList_return typedVariableList60 = null;
+        PDDLParser.typedVariableList_return typedVariableList60 = null;
 
 
         Object char_literal58_tree=null;
@@ -2206,8 +2198,8 @@ public class PddlParser extends Parser {
 
     // $ANTLR start "predicate"
     // D:\\Java\\Lib\\antlr\\abcl-bin-1.0.1\\examples-v3\\java\\pddl\\Pddl.g:170:1: predicate : NAME ;
-    public final PddlParser.predicate_return predicate() throws RecognitionException {
-        PddlParser.predicate_return retval = new PddlParser.predicate_return();
+    public final PDDLParser.predicate_return predicate() throws RecognitionException {
+        PDDLParser.predicate_return retval = new PDDLParser.predicate_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
@@ -2257,15 +2249,15 @@ public class PddlParser extends Parser {
 
     // $ANTLR start "typedVariableList"
     // D:\\Java\\Lib\\antlr\\abcl-bin-1.0.1\\examples-v3\\java\\pddl\\Pddl.g:173:1: typedVariableList : ( ( VARIABLE )* | ( singleTypeVarList )+ ( VARIABLE )* ) ;
-    public final PddlParser.typedVariableList_return typedVariableList() throws RecognitionException {
-        PddlParser.typedVariableList_return retval = new PddlParser.typedVariableList_return();
+    public final PDDLParser.typedVariableList_return typedVariableList() throws RecognitionException {
+        PDDLParser.typedVariableList_return retval = new PDDLParser.typedVariableList_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
 
         Token VARIABLE63=null;
         Token VARIABLE65=null;
-        PddlParser.singleTypeVarList_return singleTypeVarList64 = null;
+        PDDLParser.singleTypeVarList_return singleTypeVarList64 = null;
 
 
         Object VARIABLE63_tree=null;
@@ -2414,15 +2406,15 @@ public class PddlParser extends Parser {
 
     // $ANTLR start "singleTypeVarList"
     // D:\\Java\\Lib\\antlr\\abcl-bin-1.0.1\\examples-v3\\java\\pddl\\Pddl.g:177:1: singleTypeVarList : ( ( VARIABLE )+ '-' t= type ) -> ( ^( VARIABLE $t) )+ ;
-    public final PddlParser.singleTypeVarList_return singleTypeVarList() throws RecognitionException {
-        PddlParser.singleTypeVarList_return retval = new PddlParser.singleTypeVarList_return();
+    public final PDDLParser.singleTypeVarList_return singleTypeVarList() throws RecognitionException {
+        PDDLParser.singleTypeVarList_return retval = new PDDLParser.singleTypeVarList_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
 
         Token VARIABLE66=null;
         Token char_literal67=null;
-        PddlParser.type_return t = null;
+        PDDLParser.type_return t = null;
 
 
         Object VARIABLE66_tree=null;
@@ -2549,8 +2541,8 @@ public class PddlParser extends Parser {
 
     // $ANTLR start "constraints"
     // D:\\Java\\Lib\\antlr\\abcl-bin-1.0.1\\examples-v3\\java\\pddl\\Pddl.g:182:1: constraints : '(' ':constraints' conGD ')' ;
-    public final PddlParser.constraints_return constraints() throws RecognitionException {
-        PddlParser.constraints_return retval = new PddlParser.constraints_return();
+    public final PDDLParser.constraints_return constraints() throws RecognitionException {
+        PDDLParser.constraints_return retval = new PDDLParser.constraints_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
@@ -2558,7 +2550,7 @@ public class PddlParser extends Parser {
         Token char_literal68=null;
         Token string_literal69=null;
         Token char_literal71=null;
-        PddlParser.conGD_return conGD70 = null;
+        PDDLParser.conGD_return conGD70 = null;
 
 
         Object char_literal68_tree=null;
@@ -2614,17 +2606,17 @@ public class PddlParser extends Parser {
 
     // $ANTLR start "structureDef"
     // D:\\Java\\Lib\\antlr\\abcl-bin-1.0.1\\examples-v3\\java\\pddl\\Pddl.g:186:1: structureDef : ( actionDef | durativeActionDef | derivedDef );
-    public final PddlParser.structureDef_return structureDef() throws RecognitionException {
-        PddlParser.structureDef_return retval = new PddlParser.structureDef_return();
+    public final PDDLParser.structureDef_return structureDef() throws RecognitionException {
+        PDDLParser.structureDef_return retval = new PDDLParser.structureDef_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
 
-        PddlParser.actionDef_return actionDef72 = null;
+        PDDLParser.actionDef_return actionDef72 = null;
 
-        PddlParser.durativeActionDef_return durativeActionDef73 = null;
+        PDDLParser.durativeActionDef_return durativeActionDef73 = null;
 
-        PddlParser.derivedDef_return derivedDef74 = null;
+        PDDLParser.derivedDef_return derivedDef74 = null;
 
 
 
@@ -2738,8 +2730,8 @@ public class PddlParser extends Parser {
 
     // $ANTLR start "actionDef"
     // D:\\Java\\Lib\\antlr\\abcl-bin-1.0.1\\examples-v3\\java\\pddl\\Pddl.g:193:1: actionDef : '(' ':action' actionSymbol ':parameters' '(' typedVariableList ')' actionDefBody ')' -> ^( ACTION actionSymbol typedVariableList actionDefBody ) ;
-    public final PddlParser.actionDef_return actionDef() throws RecognitionException {
-        PddlParser.actionDef_return retval = new PddlParser.actionDef_return();
+    public final PDDLParser.actionDef_return actionDef() throws RecognitionException {
+        PDDLParser.actionDef_return retval = new PDDLParser.actionDef_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
@@ -2750,11 +2742,11 @@ public class PddlParser extends Parser {
         Token char_literal79=null;
         Token char_literal81=null;
         Token char_literal83=null;
-        PddlParser.actionSymbol_return actionSymbol77 = null;
+        PDDLParser.actionSymbol_return actionSymbol77 = null;
 
-        PddlParser.typedVariableList_return typedVariableList80 = null;
+        PDDLParser.typedVariableList_return typedVariableList80 = null;
 
-        PddlParser.actionDefBody_return actionDefBody82 = null;
+        PDDLParser.actionDefBody_return actionDefBody82 = null;
 
 
         Object char_literal75_tree=null;
@@ -2870,8 +2862,8 @@ public class PddlParser extends Parser {
 
     // $ANTLR start "actionSymbol"
     // D:\\Java\\Lib\\antlr\\abcl-bin-1.0.1\\examples-v3\\java\\pddl\\Pddl.g:202:1: actionSymbol : NAME ;
-    public final PddlParser.actionSymbol_return actionSymbol() throws RecognitionException {
-        PddlParser.actionSymbol_return retval = new PddlParser.actionSymbol_return();
+    public final PDDLParser.actionSymbol_return actionSymbol() throws RecognitionException {
+        PDDLParser.actionSymbol_return retval = new PDDLParser.actionSymbol_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
@@ -2921,8 +2913,8 @@ public class PddlParser extends Parser {
 
     // $ANTLR start "actionDefBody"
     // D:\\Java\\Lib\\antlr\\abcl-bin-1.0.1\\examples-v3\\java\\pddl\\Pddl.g:208:1: actionDefBody : ( ':precondition' ( ( '(' ')' ) | goalDesc ) )? ( ':effect' ( ( '(' ')' ) | effect ) )? -> ^( PRECONDITION ( goalDesc )? ) ^( EFFECT ( effect )? ) ;
-    public final PddlParser.actionDefBody_return actionDefBody() throws RecognitionException {
-        PddlParser.actionDefBody_return retval = new PddlParser.actionDefBody_return();
+    public final PDDLParser.actionDefBody_return actionDefBody() throws RecognitionException {
+        PDDLParser.actionDefBody_return retval = new PDDLParser.actionDefBody_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
@@ -2933,9 +2925,9 @@ public class PddlParser extends Parser {
         Token string_literal89=null;
         Token char_literal90=null;
         Token char_literal91=null;
-        PddlParser.goalDesc_return goalDesc88 = null;
+        PDDLParser.goalDesc_return goalDesc88 = null;
 
-        PddlParser.effect_return effect92 = null;
+        PDDLParser.effect_return effect92 = null;
 
 
         Object string_literal85_tree=null;
@@ -3195,8 +3187,8 @@ public class PddlParser extends Parser {
 
     // $ANTLR start "goalDesc"
     // D:\\Java\\Lib\\antlr\\abcl-bin-1.0.1\\examples-v3\\java\\pddl\\Pddl.g:225:1: goalDesc : ( atomicTermFormula | '(' 'and' ( goalDesc )* ')' -> ^( AND_GD ( goalDesc )* ) | '(' 'or' ( goalDesc )* ')' -> ^( OR_GD ( goalDesc )* ) | '(' 'not' goalDesc ')' -> ^( NOT_GD goalDesc ) | '(' 'imply' goalDesc goalDesc ')' -> ^( IMPLY_GD goalDesc goalDesc ) | '(' 'exists' '(' typedVariableList ')' goalDesc ')' -> ^( EXISTS_GD typedVariableList goalDesc ) | '(' 'forall' '(' typedVariableList ')' goalDesc ')' -> ^( FORALL_GD typedVariableList goalDesc ) | fComp -> ^( COMPARISON_GD fComp ) );
-    public final PddlParser.goalDesc_return goalDesc() throws RecognitionException {
-        PddlParser.goalDesc_return retval = new PddlParser.goalDesc_return();
+    public final PDDLParser.goalDesc_return goalDesc() throws RecognitionException {
+        PDDLParser.goalDesc_return retval = new PDDLParser.goalDesc_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
@@ -3223,27 +3215,27 @@ public class PddlParser extends Parser {
         Token char_literal120=null;
         Token char_literal122=null;
         Token char_literal124=null;
-        PddlParser.atomicTermFormula_return atomicTermFormula93 = null;
+        PDDLParser.atomicTermFormula_return atomicTermFormula93 = null;
 
-        PddlParser.goalDesc_return goalDesc96 = null;
+        PDDLParser.goalDesc_return goalDesc96 = null;
 
-        PddlParser.goalDesc_return goalDesc100 = null;
+        PDDLParser.goalDesc_return goalDesc100 = null;
 
-        PddlParser.goalDesc_return goalDesc104 = null;
+        PDDLParser.goalDesc_return goalDesc104 = null;
 
-        PddlParser.goalDesc_return goalDesc108 = null;
+        PDDLParser.goalDesc_return goalDesc108 = null;
 
-        PddlParser.goalDesc_return goalDesc109 = null;
+        PDDLParser.goalDesc_return goalDesc109 = null;
 
-        PddlParser.typedVariableList_return typedVariableList114 = null;
+        PDDLParser.typedVariableList_return typedVariableList114 = null;
 
-        PddlParser.goalDesc_return goalDesc116 = null;
+        PDDLParser.goalDesc_return goalDesc116 = null;
 
-        PddlParser.typedVariableList_return typedVariableList121 = null;
+        PDDLParser.typedVariableList_return typedVariableList121 = null;
 
-        PddlParser.goalDesc_return goalDesc123 = null;
+        PDDLParser.goalDesc_return goalDesc123 = null;
 
-        PddlParser.fComp_return fComp125 = null;
+        PDDLParser.fComp_return fComp125 = null;
 
 
         Object char_literal94_tree=null;
@@ -3752,19 +3744,19 @@ public class PddlParser extends Parser {
 
     // $ANTLR start "fComp"
     // D:\\Java\\Lib\\antlr\\abcl-bin-1.0.1\\examples-v3\\java\\pddl\\Pddl.g:243:1: fComp : '(' binaryComp fExp fExp ')' ;
-    public final PddlParser.fComp_return fComp() throws RecognitionException {
-        PddlParser.fComp_return retval = new PddlParser.fComp_return();
+    public final PDDLParser.fComp_return fComp() throws RecognitionException {
+        PDDLParser.fComp_return retval = new PDDLParser.fComp_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
 
         Token char_literal126=null;
         Token char_literal130=null;
-        PddlParser.binaryComp_return binaryComp127 = null;
+        PDDLParser.binaryComp_return binaryComp127 = null;
 
-        PddlParser.fExp_return fExp128 = null;
+        PDDLParser.fExp_return fExp128 = null;
 
-        PddlParser.fExp_return fExp129 = null;
+        PDDLParser.fExp_return fExp129 = null;
 
 
         Object char_literal126_tree=null;
@@ -3826,17 +3818,17 @@ public class PddlParser extends Parser {
 
     // $ANTLR start "atomicTermFormula"
     // D:\\Java\\Lib\\antlr\\abcl-bin-1.0.1\\examples-v3\\java\\pddl\\Pddl.g:247:1: atomicTermFormula : '(' predicate ( term )* ')' -> ^( PRED_HEAD predicate ( term )* ) ;
-    public final PddlParser.atomicTermFormula_return atomicTermFormula() throws RecognitionException {
-        PddlParser.atomicTermFormula_return retval = new PddlParser.atomicTermFormula_return();
+    public final PDDLParser.atomicTermFormula_return atomicTermFormula() throws RecognitionException {
+        PDDLParser.atomicTermFormula_return retval = new PDDLParser.atomicTermFormula_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
 
         Token char_literal131=null;
         Token char_literal134=null;
-        PddlParser.predicate_return predicate132 = null;
+        PDDLParser.predicate_return predicate132 = null;
 
-        PddlParser.term_return term133 = null;
+        PDDLParser.term_return term133 = null;
 
 
         Object char_literal131_tree=null;
@@ -3955,8 +3947,8 @@ public class PddlParser extends Parser {
 
     // $ANTLR start "term"
     // D:\\Java\\Lib\\antlr\\abcl-bin-1.0.1\\examples-v3\\java\\pddl\\Pddl.g:251:1: term : ( NAME | VARIABLE );
-    public final PddlParser.term_return term() throws RecognitionException {
-        PddlParser.term_return retval = new PddlParser.term_return();
+    public final PDDLParser.term_return term() throws RecognitionException {
+        PDDLParser.term_return retval = new PDDLParser.term_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
@@ -4013,8 +4005,8 @@ public class PddlParser extends Parser {
 
     // $ANTLR start "durativeActionDef"
     // D:\\Java\\Lib\\antlr\\abcl-bin-1.0.1\\examples-v3\\java\\pddl\\Pddl.g:253:1: durativeActionDef : '(' ':durative-action' actionSymbol ':parameters' '(' typedVariableList ')' daDefBody ')' -> ^( DURATIVE_ACTION actionSymbol typedVariableList daDefBody ) ;
-    public final PddlParser.durativeActionDef_return durativeActionDef() throws RecognitionException {
-        PddlParser.durativeActionDef_return retval = new PddlParser.durativeActionDef_return();
+    public final PDDLParser.durativeActionDef_return durativeActionDef() throws RecognitionException {
+        PDDLParser.durativeActionDef_return retval = new PDDLParser.durativeActionDef_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
@@ -4025,11 +4017,11 @@ public class PddlParser extends Parser {
         Token char_literal140=null;
         Token char_literal142=null;
         Token char_literal144=null;
-        PddlParser.actionSymbol_return actionSymbol138 = null;
+        PDDLParser.actionSymbol_return actionSymbol138 = null;
 
-        PddlParser.typedVariableList_return typedVariableList141 = null;
+        PDDLParser.typedVariableList_return typedVariableList141 = null;
 
-        PddlParser.daDefBody_return daDefBody143 = null;
+        PDDLParser.daDefBody_return daDefBody143 = null;
 
 
         Object char_literal136_tree=null;
@@ -4145,8 +4137,8 @@ public class PddlParser extends Parser {
 
     // $ANTLR start "daDefBody"
     // D:\\Java\\Lib\\antlr\\abcl-bin-1.0.1\\examples-v3\\java\\pddl\\Pddl.g:262:1: daDefBody : ( ':duration' durationConstraint | ':condition' ( ( '(' ')' ) | daGD ) | ':effect' ( ( '(' ')' ) | daEffect ) );
-    public final PddlParser.daDefBody_return daDefBody() throws RecognitionException {
-        PddlParser.daDefBody_return retval = new PddlParser.daDefBody_return();
+    public final PDDLParser.daDefBody_return daDefBody() throws RecognitionException {
+        PDDLParser.daDefBody_return retval = new PDDLParser.daDefBody_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
@@ -4158,11 +4150,11 @@ public class PddlParser extends Parser {
         Token string_literal151=null;
         Token char_literal152=null;
         Token char_literal153=null;
-        PddlParser.durationConstraint_return durationConstraint146 = null;
+        PDDLParser.durationConstraint_return durationConstraint146 = null;
 
-        PddlParser.daGD_return daGD150 = null;
+        PDDLParser.daGD_return daGD150 = null;
 
-        PddlParser.daEffect_return daEffect154 = null;
+        PDDLParser.daEffect_return daEffect154 = null;
 
 
         Object string_literal145_tree=null;
@@ -4407,8 +4399,8 @@ public class PddlParser extends Parser {
 
     // $ANTLR start "daGD"
     // D:\\Java\\Lib\\antlr\\abcl-bin-1.0.1\\examples-v3\\java\\pddl\\Pddl.g:268:1: daGD : ( prefTimedGD | '(' 'and' ( daGD )* ')' | '(' 'forall' '(' typedVariableList ')' daGD ')' );
-    public final PddlParser.daGD_return daGD() throws RecognitionException {
-        PddlParser.daGD_return retval = new PddlParser.daGD_return();
+    public final PDDLParser.daGD_return daGD() throws RecognitionException {
+        PDDLParser.daGD_return retval = new PDDLParser.daGD_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
@@ -4421,13 +4413,13 @@ public class PddlParser extends Parser {
         Token char_literal162=null;
         Token char_literal164=null;
         Token char_literal166=null;
-        PddlParser.prefTimedGD_return prefTimedGD155 = null;
+        PDDLParser.prefTimedGD_return prefTimedGD155 = null;
 
-        PddlParser.daGD_return daGD158 = null;
+        PDDLParser.daGD_return daGD158 = null;
 
-        PddlParser.typedVariableList_return typedVariableList163 = null;
+        PDDLParser.typedVariableList_return typedVariableList163 = null;
 
-        PddlParser.daGD_return daGD165 = null;
+        PDDLParser.daGD_return daGD165 = null;
 
 
         Object char_literal156_tree=null;
@@ -4621,8 +4613,8 @@ public class PddlParser extends Parser {
 
     // $ANTLR start "prefTimedGD"
     // D:\\Java\\Lib\\antlr\\abcl-bin-1.0.1\\examples-v3\\java\\pddl\\Pddl.g:274:1: prefTimedGD : ( timedGD | '(' 'preference' ( NAME )? timedGD ')' );
-    public final PddlParser.prefTimedGD_return prefTimedGD() throws RecognitionException {
-        PddlParser.prefTimedGD_return retval = new PddlParser.prefTimedGD_return();
+    public final PDDLParser.prefTimedGD_return prefTimedGD() throws RecognitionException {
+        PDDLParser.prefTimedGD_return retval = new PDDLParser.prefTimedGD_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
@@ -4631,9 +4623,9 @@ public class PddlParser extends Parser {
         Token string_literal169=null;
         Token NAME170=null;
         Token char_literal172=null;
-        PddlParser.timedGD_return timedGD167 = null;
+        PDDLParser.timedGD_return timedGD167 = null;
 
-        PddlParser.timedGD_return timedGD171 = null;
+        PDDLParser.timedGD_return timedGD171 = null;
 
 
         Object char_literal168_tree=null;
@@ -4765,8 +4757,8 @@ public class PddlParser extends Parser {
 
     // $ANTLR start "timedGD"
     // D:\\Java\\Lib\\antlr\\abcl-bin-1.0.1\\examples-v3\\java\\pddl\\Pddl.g:279:1: timedGD : ( '(' 'at' timeSpecifier goalDesc ')' | '(' 'over' interval goalDesc ')' );
-    public final PddlParser.timedGD_return timedGD() throws RecognitionException {
-        PddlParser.timedGD_return retval = new PddlParser.timedGD_return();
+    public final PDDLParser.timedGD_return timedGD() throws RecognitionException {
+        PDDLParser.timedGD_return retval = new PDDLParser.timedGD_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
@@ -4777,13 +4769,13 @@ public class PddlParser extends Parser {
         Token char_literal178=null;
         Token string_literal179=null;
         Token char_literal182=null;
-        PddlParser.timeSpecifier_return timeSpecifier175 = null;
+        PDDLParser.timeSpecifier_return timeSpecifier175 = null;
 
-        PddlParser.goalDesc_return goalDesc176 = null;
+        PDDLParser.goalDesc_return goalDesc176 = null;
 
-        PddlParser.interval_return interval180 = null;
+        PDDLParser.interval_return interval180 = null;
 
-        PddlParser.goalDesc_return goalDesc181 = null;
+        PDDLParser.goalDesc_return goalDesc181 = null;
 
 
         Object char_literal173_tree=null;
@@ -4922,8 +4914,8 @@ public class PddlParser extends Parser {
 
     // $ANTLR start "timeSpecifier"
     // D:\\Java\\Lib\\antlr\\abcl-bin-1.0.1\\examples-v3\\java\\pddl\\Pddl.g:284:1: timeSpecifier : ( 'start' | 'end' );
-    public final PddlParser.timeSpecifier_return timeSpecifier() throws RecognitionException {
-        PddlParser.timeSpecifier_return retval = new PddlParser.timeSpecifier_return();
+    public final PDDLParser.timeSpecifier_return timeSpecifier() throws RecognitionException {
+        PDDLParser.timeSpecifier_return retval = new PDDLParser.timeSpecifier_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
@@ -4980,8 +4972,8 @@ public class PddlParser extends Parser {
 
     // $ANTLR start "interval"
     // D:\\Java\\Lib\\antlr\\abcl-bin-1.0.1\\examples-v3\\java\\pddl\\Pddl.g:285:1: interval : 'all' ;
-    public final PddlParser.interval_return interval() throws RecognitionException {
-        PddlParser.interval_return retval = new PddlParser.interval_return();
+    public final PDDLParser.interval_return interval() throws RecognitionException {
+        PDDLParser.interval_return retval = new PDDLParser.interval_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
@@ -5031,8 +5023,8 @@ public class PddlParser extends Parser {
 
     // $ANTLR start "derivedDef"
     // D:\\Java\\Lib\\antlr\\abcl-bin-1.0.1\\examples-v3\\java\\pddl\\Pddl.g:287:1: derivedDef : '(' ':derived' typedVariableList goalDesc ')' ;
-    public final PddlParser.derivedDef_return derivedDef() throws RecognitionException {
-        PddlParser.derivedDef_return retval = new PddlParser.derivedDef_return();
+    public final PDDLParser.derivedDef_return derivedDef() throws RecognitionException {
+        PDDLParser.derivedDef_return retval = new PDDLParser.derivedDef_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
@@ -5040,9 +5032,9 @@ public class PddlParser extends Parser {
         Token char_literal185=null;
         Token string_literal186=null;
         Token char_literal189=null;
-        PddlParser.typedVariableList_return typedVariableList187 = null;
+        PDDLParser.typedVariableList_return typedVariableList187 = null;
 
-        PddlParser.goalDesc_return goalDesc188 = null;
+        PDDLParser.goalDesc_return goalDesc188 = null;
 
 
         Object char_literal185_tree=null;
@@ -5104,8 +5096,8 @@ public class PddlParser extends Parser {
 
     // $ANTLR start "fExp"
     // D:\\Java\\Lib\\antlr\\abcl-bin-1.0.1\\examples-v3\\java\\pddl\\Pddl.g:293:1: fExp : ( NUMBER | '(' binaryOp fExp fExp2 ')' -> ^( BINARY_OP binaryOp fExp fExp2 ) | '(' '-' fExp ')' -> ^( UNARY_MINUS fExp ) | fHead );
-    public final PddlParser.fExp_return fExp() throws RecognitionException {
-        PddlParser.fExp_return retval = new PddlParser.fExp_return();
+    public final PDDLParser.fExp_return fExp() throws RecognitionException {
+        PDDLParser.fExp_return retval = new PDDLParser.fExp_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
@@ -5116,15 +5108,15 @@ public class PddlParser extends Parser {
         Token char_literal196=null;
         Token char_literal197=null;
         Token char_literal199=null;
-        PddlParser.binaryOp_return binaryOp192 = null;
+        PDDLParser.binaryOp_return binaryOp192 = null;
 
-        PddlParser.fExp_return fExp193 = null;
+        PDDLParser.fExp_return fExp193 = null;
 
-        PddlParser.fExp2_return fExp2194 = null;
+        PDDLParser.fExp2_return fExp2194 = null;
 
-        PddlParser.fExp_return fExp198 = null;
+        PDDLParser.fExp_return fExp198 = null;
 
-        PddlParser.fHead_return fHead200 = null;
+        PDDLParser.fHead_return fHead200 = null;
 
 
         Object NUMBER190_tree=null;
@@ -5349,13 +5341,13 @@ public class PddlParser extends Parser {
 
     // $ANTLR start "fExp2"
     // D:\\Java\\Lib\\antlr\\abcl-bin-1.0.1\\examples-v3\\java\\pddl\\Pddl.g:304:1: fExp2 : fExp ;
-    public final PddlParser.fExp2_return fExp2() throws RecognitionException {
-        PddlParser.fExp2_return retval = new PddlParser.fExp2_return();
+    public final PDDLParser.fExp2_return fExp2() throws RecognitionException {
+        PDDLParser.fExp2_return retval = new PDDLParser.fExp2_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
 
-        PddlParser.fExp_return fExp201 = null;
+        PDDLParser.fExp_return fExp201 = null;
 
 
 
@@ -5401,19 +5393,19 @@ public class PddlParser extends Parser {
 
     // $ANTLR start "fHead"
     // D:\\Java\\Lib\\antlr\\abcl-bin-1.0.1\\examples-v3\\java\\pddl\\Pddl.g:306:1: fHead : ( '(' functionSymbol ( term )* ')' -> ^( FUNC_HEAD functionSymbol ( term )* ) | functionSymbol -> ^( FUNC_HEAD functionSymbol ) );
-    public final PddlParser.fHead_return fHead() throws RecognitionException {
-        PddlParser.fHead_return retval = new PddlParser.fHead_return();
+    public final PDDLParser.fHead_return fHead() throws RecognitionException {
+        PDDLParser.fHead_return retval = new PDDLParser.fHead_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
 
         Token char_literal202=null;
         Token char_literal205=null;
-        PddlParser.functionSymbol_return functionSymbol203 = null;
+        PDDLParser.functionSymbol_return functionSymbol203 = null;
 
-        PddlParser.term_return term204 = null;
+        PDDLParser.term_return term204 = null;
 
-        PddlParser.functionSymbol_return functionSymbol206 = null;
+        PDDLParser.functionSymbol_return functionSymbol206 = null;
 
 
         Object char_literal202_tree=null;
@@ -5592,8 +5584,8 @@ public class PddlParser extends Parser {
 
     // $ANTLR start "effect"
     // D:\\Java\\Lib\\antlr\\abcl-bin-1.0.1\\examples-v3\\java\\pddl\\Pddl.g:311:1: effect : ( '(' 'and' ( cEffect )* ')' -> ^( AND_EFFECT ( cEffect )* ) | cEffect );
-    public final PddlParser.effect_return effect() throws RecognitionException {
-        PddlParser.effect_return retval = new PddlParser.effect_return();
+    public final PDDLParser.effect_return effect() throws RecognitionException {
+        PDDLParser.effect_return retval = new PDDLParser.effect_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
@@ -5601,9 +5593,9 @@ public class PddlParser extends Parser {
         Token char_literal207=null;
         Token string_literal208=null;
         Token char_literal210=null;
-        PddlParser.cEffect_return cEffect209 = null;
+        PDDLParser.cEffect_return cEffect209 = null;
 
-        PddlParser.cEffect_return cEffect211 = null;
+        PDDLParser.cEffect_return cEffect211 = null;
 
 
         Object char_literal207_tree=null;
@@ -5764,8 +5756,8 @@ public class PddlParser extends Parser {
 
     // $ANTLR start "cEffect"
     // D:\\Java\\Lib\\antlr\\abcl-bin-1.0.1\\examples-v3\\java\\pddl\\Pddl.g:316:1: cEffect : ( '(' 'forall' '(' typedVariableList ')' effect ')' -> ^( FORALL_EFFECT typedVariableList effect ) | '(' 'when' goalDesc condEffect ')' -> ^( WHEN_EFFECT goalDesc condEffect ) | pEffect );
-    public final PddlParser.cEffect_return cEffect() throws RecognitionException {
-        PddlParser.cEffect_return retval = new PddlParser.cEffect_return();
+    public final PDDLParser.cEffect_return cEffect() throws RecognitionException {
+        PDDLParser.cEffect_return retval = new PDDLParser.cEffect_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
@@ -5778,15 +5770,15 @@ public class PddlParser extends Parser {
         Token char_literal219=null;
         Token string_literal220=null;
         Token char_literal223=null;
-        PddlParser.typedVariableList_return typedVariableList215 = null;
+        PDDLParser.typedVariableList_return typedVariableList215 = null;
 
-        PddlParser.effect_return effect217 = null;
+        PDDLParser.effect_return effect217 = null;
 
-        PddlParser.goalDesc_return goalDesc221 = null;
+        PDDLParser.goalDesc_return goalDesc221 = null;
 
-        PddlParser.condEffect_return condEffect222 = null;
+        PDDLParser.condEffect_return condEffect222 = null;
 
-        PddlParser.pEffect_return pEffect224 = null;
+        PDDLParser.pEffect_return pEffect224 = null;
 
 
         Object char_literal212_tree=null;
@@ -6011,8 +6003,8 @@ public class PddlParser extends Parser {
 
     // $ANTLR start "pEffect"
     // D:\\Java\\Lib\\antlr\\abcl-bin-1.0.1\\examples-v3\\java\\pddl\\Pddl.g:324:1: pEffect : ( '(' assignOp fHead fExp ')' -> ^( ASSIGN_EFFECT assignOp fHead fExp ) | '(' 'not' atomicTermFormula ')' -> ^( NOT_EFFECT atomicTermFormula ) | atomicTermFormula );
-    public final PddlParser.pEffect_return pEffect() throws RecognitionException {
-        PddlParser.pEffect_return retval = new PddlParser.pEffect_return();
+    public final PDDLParser.pEffect_return pEffect() throws RecognitionException {
+        PDDLParser.pEffect_return retval = new PDDLParser.pEffect_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
@@ -6022,15 +6014,15 @@ public class PddlParser extends Parser {
         Token char_literal230=null;
         Token string_literal231=null;
         Token char_literal233=null;
-        PddlParser.assignOp_return assignOp226 = null;
+        PDDLParser.assignOp_return assignOp226 = null;
 
-        PddlParser.fHead_return fHead227 = null;
+        PDDLParser.fHead_return fHead227 = null;
 
-        PddlParser.fExp_return fExp228 = null;
+        PDDLParser.fExp_return fExp228 = null;
 
-        PddlParser.atomicTermFormula_return atomicTermFormula232 = null;
+        PDDLParser.atomicTermFormula_return atomicTermFormula232 = null;
 
-        PddlParser.atomicTermFormula_return atomicTermFormula234 = null;
+        PDDLParser.atomicTermFormula_return atomicTermFormula234 = null;
 
 
         Object char_literal225_tree=null;
@@ -6240,8 +6232,8 @@ public class PddlParser extends Parser {
 
     // $ANTLR start "condEffect"
     // D:\\Java\\Lib\\antlr\\abcl-bin-1.0.1\\examples-v3\\java\\pddl\\Pddl.g:334:1: condEffect : ( '(' 'and' ( pEffect )* ')' -> ^( AND_EFFECT ( pEffect )* ) | pEffect );
-    public final PddlParser.condEffect_return condEffect() throws RecognitionException {
-        PddlParser.condEffect_return retval = new PddlParser.condEffect_return();
+    public final PDDLParser.condEffect_return condEffect() throws RecognitionException {
+        PDDLParser.condEffect_return retval = new PDDLParser.condEffect_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
@@ -6249,9 +6241,9 @@ public class PddlParser extends Parser {
         Token char_literal235=null;
         Token string_literal236=null;
         Token char_literal238=null;
-        PddlParser.pEffect_return pEffect237 = null;
+        PDDLParser.pEffect_return pEffect237 = null;
 
-        PddlParser.pEffect_return pEffect239 = null;
+        PDDLParser.pEffect_return pEffect239 = null;
 
 
         Object char_literal235_tree=null;
@@ -6412,8 +6404,8 @@ public class PddlParser extends Parser {
 
     // $ANTLR start "binaryOp"
     // D:\\Java\\Lib\\antlr\\abcl-bin-1.0.1\\examples-v3\\java\\pddl\\Pddl.g:340:1: binaryOp : ( '*' | '+' | '-' | '/' );
-    public final PddlParser.binaryOp_return binaryOp() throws RecognitionException {
-        PddlParser.binaryOp_return retval = new PddlParser.binaryOp_return();
+    public final PDDLParser.binaryOp_return binaryOp() throws RecognitionException {
+        PDDLParser.binaryOp_return retval = new PDDLParser.binaryOp_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
@@ -6470,8 +6462,8 @@ public class PddlParser extends Parser {
 
     // $ANTLR start "binaryComp"
     // D:\\Java\\Lib\\antlr\\abcl-bin-1.0.1\\examples-v3\\java\\pddl\\Pddl.g:342:1: binaryComp : ( '>' | '<' | '=' | '>=' | '<=' );
-    public final PddlParser.binaryComp_return binaryComp() throws RecognitionException {
-        PddlParser.binaryComp_return retval = new PddlParser.binaryComp_return();
+    public final PDDLParser.binaryComp_return binaryComp() throws RecognitionException {
+        PDDLParser.binaryComp_return retval = new PDDLParser.binaryComp_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
@@ -6528,8 +6520,8 @@ public class PddlParser extends Parser {
 
     // $ANTLR start "assignOp"
     // D:\\Java\\Lib\\antlr\\abcl-bin-1.0.1\\examples-v3\\java\\pddl\\Pddl.g:344:1: assignOp : ( 'assign' | 'scale-up' | 'scale-down' | 'increase' | 'decrease' );
-    public final PddlParser.assignOp_return assignOp() throws RecognitionException {
-        PddlParser.assignOp_return retval = new PddlParser.assignOp_return();
+    public final PDDLParser.assignOp_return assignOp() throws RecognitionException {
+        PDDLParser.assignOp_return retval = new PDDLParser.assignOp_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
@@ -6586,8 +6578,8 @@ public class PddlParser extends Parser {
 
     // $ANTLR start "durationConstraint"
     // D:\\Java\\Lib\\antlr\\abcl-bin-1.0.1\\examples-v3\\java\\pddl\\Pddl.g:347:1: durationConstraint : ( '(' 'and' ( simpleDurationConstraint )+ ')' | '(' ')' | simpleDurationConstraint );
-    public final PddlParser.durationConstraint_return durationConstraint() throws RecognitionException {
-        PddlParser.durationConstraint_return retval = new PddlParser.durationConstraint_return();
+    public final PDDLParser.durationConstraint_return durationConstraint() throws RecognitionException {
+        PDDLParser.durationConstraint_return retval = new PDDLParser.durationConstraint_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
@@ -6597,9 +6589,9 @@ public class PddlParser extends Parser {
         Token char_literal246=null;
         Token char_literal247=null;
         Token char_literal248=null;
-        PddlParser.simpleDurationConstraint_return simpleDurationConstraint245 = null;
+        PDDLParser.simpleDurationConstraint_return simpleDurationConstraint245 = null;
 
-        PddlParser.simpleDurationConstraint_return simpleDurationConstraint249 = null;
+        PDDLParser.simpleDurationConstraint_return simpleDurationConstraint249 = null;
 
 
         Object char_literal243_tree=null;
@@ -6770,8 +6762,8 @@ public class PddlParser extends Parser {
 
     // $ANTLR start "simpleDurationConstraint"
     // D:\\Java\\Lib\\antlr\\abcl-bin-1.0.1\\examples-v3\\java\\pddl\\Pddl.g:355:1: simpleDurationConstraint : ( '(' durOp '?duration' durValue ')' | '(' 'at' timeSpecifier simpleDurationConstraint ')' );
-    public final PddlParser.simpleDurationConstraint_return simpleDurationConstraint() throws RecognitionException {
-        PddlParser.simpleDurationConstraint_return retval = new PddlParser.simpleDurationConstraint_return();
+    public final PDDLParser.simpleDurationConstraint_return simpleDurationConstraint() throws RecognitionException {
+        PDDLParser.simpleDurationConstraint_return retval = new PDDLParser.simpleDurationConstraint_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
@@ -6782,13 +6774,13 @@ public class PddlParser extends Parser {
         Token char_literal255=null;
         Token string_literal256=null;
         Token char_literal259=null;
-        PddlParser.durOp_return durOp251 = null;
+        PDDLParser.durOp_return durOp251 = null;
 
-        PddlParser.durValue_return durValue253 = null;
+        PDDLParser.durValue_return durValue253 = null;
 
-        PddlParser.timeSpecifier_return timeSpecifier257 = null;
+        PDDLParser.timeSpecifier_return timeSpecifier257 = null;
 
-        PddlParser.simpleDurationConstraint_return simpleDurationConstraint258 = null;
+        PDDLParser.simpleDurationConstraint_return simpleDurationConstraint258 = null;
 
 
         Object char_literal250_tree=null;
@@ -6927,8 +6919,8 @@ public class PddlParser extends Parser {
 
     // $ANTLR start "durOp"
     // D:\\Java\\Lib\\antlr\\abcl-bin-1.0.1\\examples-v3\\java\\pddl\\Pddl.g:360:1: durOp : ( '<=' | '>=' | '=' );
-    public final PddlParser.durOp_return durOp() throws RecognitionException {
-        PddlParser.durOp_return retval = new PddlParser.durOp_return();
+    public final PDDLParser.durOp_return durOp() throws RecognitionException {
+        PDDLParser.durOp_return retval = new PDDLParser.durOp_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
@@ -6985,14 +6977,14 @@ public class PddlParser extends Parser {
 
     // $ANTLR start "durValue"
     // D:\\Java\\Lib\\antlr\\abcl-bin-1.0.1\\examples-v3\\java\\pddl\\Pddl.g:362:1: durValue : ( NUMBER | fExp );
-    public final PddlParser.durValue_return durValue() throws RecognitionException {
-        PddlParser.durValue_return retval = new PddlParser.durValue_return();
+    public final PDDLParser.durValue_return durValue() throws RecognitionException {
+        PDDLParser.durValue_return retval = new PDDLParser.durValue_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
 
         Token NUMBER261=null;
-        PddlParser.fExp_return fExp262 = null;
+        PDDLParser.fExp_return fExp262 = null;
 
 
         Object NUMBER261_tree=null;
@@ -7086,8 +7078,8 @@ public class PddlParser extends Parser {
 
     // $ANTLR start "daEffect"
     // D:\\Java\\Lib\\antlr\\abcl-bin-1.0.1\\examples-v3\\java\\pddl\\Pddl.g:364:1: daEffect : ( '(' 'and' ( daEffect )* ')' | timedEffect | '(' 'forall' '(' typedVariableList ')' daEffect ')' | '(' 'when' daGD timedEffect ')' | '(' assignOp fHead fExpDA ')' );
-    public final PddlParser.daEffect_return daEffect() throws RecognitionException {
-        PddlParser.daEffect_return retval = new PddlParser.daEffect_return();
+    public final PDDLParser.daEffect_return daEffect() throws RecognitionException {
+        PDDLParser.daEffect_return retval = new PDDLParser.daEffect_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
@@ -7105,23 +7097,23 @@ public class PddlParser extends Parser {
         Token char_literal279=null;
         Token char_literal280=null;
         Token char_literal284=null;
-        PddlParser.daEffect_return daEffect265 = null;
+        PDDLParser.daEffect_return daEffect265 = null;
 
-        PddlParser.timedEffect_return timedEffect267 = null;
+        PDDLParser.timedEffect_return timedEffect267 = null;
 
-        PddlParser.typedVariableList_return typedVariableList271 = null;
+        PDDLParser.typedVariableList_return typedVariableList271 = null;
 
-        PddlParser.daEffect_return daEffect273 = null;
+        PDDLParser.daEffect_return daEffect273 = null;
 
-        PddlParser.daGD_return daGD277 = null;
+        PDDLParser.daGD_return daGD277 = null;
 
-        PddlParser.timedEffect_return timedEffect278 = null;
+        PDDLParser.timedEffect_return timedEffect278 = null;
 
-        PddlParser.assignOp_return assignOp281 = null;
+        PDDLParser.assignOp_return assignOp281 = null;
 
-        PddlParser.fHead_return fHead282 = null;
+        PDDLParser.fHead_return fHead282 = null;
 
-        PddlParser.fExpDA_return fExpDA283 = null;
+        PDDLParser.fExpDA_return fExpDA283 = null;
 
 
         Object char_literal263_tree=null;
@@ -7389,8 +7381,8 @@ public class PddlParser extends Parser {
 
     // $ANTLR start "timedEffect"
     // D:\\Java\\Lib\\antlr\\abcl-bin-1.0.1\\examples-v3\\java\\pddl\\Pddl.g:372:1: timedEffect : ( '(' 'at' timeSpecifier daEffect ')' | '(' 'at' timeSpecifier fAssignDA ')' | '(' assignOp fHead fExp ')' );
-    public final PddlParser.timedEffect_return timedEffect() throws RecognitionException {
-        PddlParser.timedEffect_return retval = new PddlParser.timedEffect_return();
+    public final PDDLParser.timedEffect_return timedEffect() throws RecognitionException {
+        PDDLParser.timedEffect_return retval = new PDDLParser.timedEffect_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
@@ -7403,19 +7395,19 @@ public class PddlParser extends Parser {
         Token char_literal294=null;
         Token char_literal295=null;
         Token char_literal299=null;
-        PddlParser.timeSpecifier_return timeSpecifier287 = null;
+        PDDLParser.timeSpecifier_return timeSpecifier287 = null;
 
-        PddlParser.daEffect_return daEffect288 = null;
+        PDDLParser.daEffect_return daEffect288 = null;
 
-        PddlParser.timeSpecifier_return timeSpecifier292 = null;
+        PDDLParser.timeSpecifier_return timeSpecifier292 = null;
 
-        PddlParser.fAssignDA_return fAssignDA293 = null;
+        PDDLParser.fAssignDA_return fAssignDA293 = null;
 
-        PddlParser.assignOp_return assignOp296 = null;
+        PDDLParser.assignOp_return assignOp296 = null;
 
-        PddlParser.fHead_return fHead297 = null;
+        PDDLParser.fHead_return fHead297 = null;
 
-        PddlParser.fExp_return fExp298 = null;
+        PDDLParser.fExp_return fExp298 = null;
 
 
         Object char_literal285_tree=null;
@@ -7595,19 +7587,19 @@ public class PddlParser extends Parser {
 
     // $ANTLR start "fAssignDA"
     // D:\\Java\\Lib\\antlr\\abcl-bin-1.0.1\\examples-v3\\java\\pddl\\Pddl.g:378:1: fAssignDA : '(' assignOp fHead fExpDA ')' ;
-    public final PddlParser.fAssignDA_return fAssignDA() throws RecognitionException {
-        PddlParser.fAssignDA_return retval = new PddlParser.fAssignDA_return();
+    public final PDDLParser.fAssignDA_return fAssignDA() throws RecognitionException {
+        PDDLParser.fAssignDA_return retval = new PDDLParser.fAssignDA_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
 
         Token char_literal300=null;
         Token char_literal304=null;
-        PddlParser.assignOp_return assignOp301 = null;
+        PDDLParser.assignOp_return assignOp301 = null;
 
-        PddlParser.fHead_return fHead302 = null;
+        PDDLParser.fHead_return fHead302 = null;
 
-        PddlParser.fExpDA_return fExpDA303 = null;
+        PDDLParser.fExpDA_return fExpDA303 = null;
 
 
         Object char_literal300_tree=null;
@@ -7677,8 +7669,8 @@ public class PddlParser extends Parser {
 
     // $ANTLR start "fExpDA"
     // D:\\Java\\Lib\\antlr\\abcl-bin-1.0.1\\examples-v3\\java\\pddl\\Pddl.g:382:1: fExpDA : ( '(' ( ( binaryOp fExpDA fExpDA ) | ( '-' fExpDA ) ) ')' | '?duration' | fExp );
-    public final PddlParser.fExpDA_return fExpDA() throws RecognitionException {
-        PddlParser.fExpDA_return retval = new PddlParser.fExpDA_return();
+    public final PDDLParser.fExpDA_return fExpDA() throws RecognitionException {
+        PDDLParser.fExpDA_return retval = new PDDLParser.fExpDA_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
@@ -7687,15 +7679,15 @@ public class PddlParser extends Parser {
         Token char_literal309=null;
         Token char_literal311=null;
         Token string_literal312=null;
-        PddlParser.binaryOp_return binaryOp306 = null;
+        PDDLParser.binaryOp_return binaryOp306 = null;
 
-        PddlParser.fExpDA_return fExpDA307 = null;
+        PDDLParser.fExpDA_return fExpDA307 = null;
 
-        PddlParser.fExpDA_return fExpDA308 = null;
+        PDDLParser.fExpDA_return fExpDA308 = null;
 
-        PddlParser.fExpDA_return fExpDA310 = null;
+        PDDLParser.fExpDA_return fExpDA310 = null;
 
-        PddlParser.fExp_return fExp313 = null;
+        PDDLParser.fExp_return fExp313 = null;
 
 
         Object char_literal305_tree=null;
@@ -7908,8 +7900,8 @@ public class PddlParser extends Parser {
 
     // $ANTLR start "problem"
     // D:\\Java\\Lib\\antlr\\abcl-bin-1.0.1\\examples-v3\\java\\pddl\\Pddl.g:388:1: problem : '(' 'define' problemDecl problemDomain ( requireDef )? ( objectDecl )? init goal ( probConstraints )? ( metricSpec )? ')' -> ^( PROBLEM problemDecl problemDomain ( requireDef )? ( objectDecl )? init goal ( probConstraints )? ( metricSpec )? ) ;
-    public final PddlParser.problem_return problem() throws RecognitionException {
-        PddlParser.problem_return retval = new PddlParser.problem_return();
+    public final PDDLParser.problem_return problem() throws RecognitionException {
+        PDDLParser.problem_return retval = new PDDLParser.problem_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
@@ -7917,21 +7909,21 @@ public class PddlParser extends Parser {
         Token char_literal314=null;
         Token string_literal315=null;
         Token char_literal324=null;
-        PddlParser.problemDecl_return problemDecl316 = null;
+        PDDLParser.problemDecl_return problemDecl316 = null;
 
-        PddlParser.problemDomain_return problemDomain317 = null;
+        PDDLParser.problemDomain_return problemDomain317 = null;
 
-        PddlParser.requireDef_return requireDef318 = null;
+        PDDLParser.requireDef_return requireDef318 = null;
 
-        PddlParser.objectDecl_return objectDecl319 = null;
+        PDDLParser.objectDecl_return objectDecl319 = null;
 
-        PddlParser.init_return init320 = null;
+        PDDLParser.init_return init320 = null;
 
-        PddlParser.goal_return goal321 = null;
+        PDDLParser.goal_return goal321 = null;
 
-        PddlParser.probConstraints_return probConstraints322 = null;
+        PDDLParser.probConstraints_return probConstraints322 = null;
 
-        PddlParser.metricSpec_return metricSpec323 = null;
+        PDDLParser.metricSpec_return metricSpec323 = null;
 
 
         Object char_literal314_tree=null;
@@ -8174,8 +8166,8 @@ public class PddlParser extends Parser {
 
     // $ANTLR start "problemDecl"
     // D:\\Java\\Lib\\antlr\\abcl-bin-1.0.1\\examples-v3\\java\\pddl\\Pddl.g:405:1: problemDecl : '(' 'problem' NAME ')' -> ^( PROBLEM_NAME NAME ) ;
-    public final PddlParser.problemDecl_return problemDecl() throws RecognitionException {
-        PddlParser.problemDecl_return retval = new PddlParser.problemDecl_return();
+    public final PDDLParser.problemDecl_return problemDecl() throws RecognitionException {
+        PDDLParser.problemDecl_return retval = new PDDLParser.problemDecl_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
@@ -8268,8 +8260,8 @@ public class PddlParser extends Parser {
 
     // $ANTLR start "problemDomain"
     // D:\\Java\\Lib\\antlr\\abcl-bin-1.0.1\\examples-v3\\java\\pddl\\Pddl.g:410:1: problemDomain : '(' ':domain' NAME ')' -> ^( PROBLEM_DOMAIN NAME ) ;
-    public final PddlParser.problemDomain_return problemDomain() throws RecognitionException {
-        PddlParser.problemDomain_return retval = new PddlParser.problemDomain_return();
+    public final PDDLParser.problemDomain_return problemDomain() throws RecognitionException {
+        PDDLParser.problemDomain_return retval = new PDDLParser.problemDomain_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
@@ -8362,8 +8354,8 @@ public class PddlParser extends Parser {
 
     // $ANTLR start "objectDecl"
     // D:\\Java\\Lib\\antlr\\abcl-bin-1.0.1\\examples-v3\\java\\pddl\\Pddl.g:415:1: objectDecl : '(' ':objects' typedNameList ')' -> ^( OBJECTS typedNameList ) ;
-    public final PddlParser.objectDecl_return objectDecl() throws RecognitionException {
-        PddlParser.objectDecl_return retval = new PddlParser.objectDecl_return();
+    public final PDDLParser.objectDecl_return objectDecl() throws RecognitionException {
+        PDDLParser.objectDecl_return retval = new PDDLParser.objectDecl_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
@@ -8371,7 +8363,7 @@ public class PddlParser extends Parser {
         Token char_literal333=null;
         Token string_literal334=null;
         Token char_literal336=null;
-        PddlParser.typedNameList_return typedNameList335 = null;
+        PDDLParser.typedNameList_return typedNameList335 = null;
 
 
         Object char_literal333_tree=null;
@@ -8458,8 +8450,8 @@ public class PddlParser extends Parser {
 
     // $ANTLR start "init"
     // D:\\Java\\Lib\\antlr\\abcl-bin-1.0.1\\examples-v3\\java\\pddl\\Pddl.g:420:1: init : '(' ':init' ( initEl )* ')' -> ^( INIT ( initEl )* ) ;
-    public final PddlParser.init_return init() throws RecognitionException {
-        PddlParser.init_return retval = new PddlParser.init_return();
+    public final PDDLParser.init_return init() throws RecognitionException {
+        PDDLParser.init_return retval = new PDDLParser.init_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
@@ -8467,7 +8459,7 @@ public class PddlParser extends Parser {
         Token char_literal337=null;
         Token string_literal338=null;
         Token char_literal340=null;
-        PddlParser.initEl_return initEl339 = null;
+        PDDLParser.initEl_return initEl339 = null;
 
 
         Object char_literal337_tree=null;
@@ -8583,8 +8575,8 @@ public class PddlParser extends Parser {
 
     // $ANTLR start "initEl"
     // D:\\Java\\Lib\\antlr\\abcl-bin-1.0.1\\examples-v3\\java\\pddl\\Pddl.g:425:1: initEl : ( nameLiteral | '(' '=' fHead NUMBER ')' -> ^( INIT_EQ fHead NUMBER ) | '(' 'at' NUMBER nameLiteral ')' -> ^( INIT_AT NUMBER nameLiteral ) );
-    public final PddlParser.initEl_return initEl() throws RecognitionException {
-        PddlParser.initEl_return retval = new PddlParser.initEl_return();
+    public final PDDLParser.initEl_return initEl() throws RecognitionException {
+        PDDLParser.initEl_return retval = new PDDLParser.initEl_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
@@ -8597,11 +8589,11 @@ public class PddlParser extends Parser {
         Token string_literal348=null;
         Token NUMBER349=null;
         Token char_literal351=null;
-        PddlParser.nameLiteral_return nameLiteral341 = null;
+        PDDLParser.nameLiteral_return nameLiteral341 = null;
 
-        PddlParser.fHead_return fHead344 = null;
+        PDDLParser.fHead_return fHead344 = null;
 
-        PddlParser.nameLiteral_return nameLiteral350 = null;
+        PDDLParser.nameLiteral_return nameLiteral350 = null;
 
 
         Object char_literal342_tree=null;
@@ -8808,8 +8800,8 @@ public class PddlParser extends Parser {
 
     // $ANTLR start "nameLiteral"
     // D:\\Java\\Lib\\antlr\\abcl-bin-1.0.1\\examples-v3\\java\\pddl\\Pddl.g:431:1: nameLiteral : ( atomicNameFormula | '(' 'not' atomicNameFormula ')' -> ^( NOT_PRED_INIT atomicNameFormula ) );
-    public final PddlParser.nameLiteral_return nameLiteral() throws RecognitionException {
-        PddlParser.nameLiteral_return retval = new PddlParser.nameLiteral_return();
+    public final PDDLParser.nameLiteral_return nameLiteral() throws RecognitionException {
+        PDDLParser.nameLiteral_return retval = new PDDLParser.nameLiteral_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
@@ -8817,9 +8809,9 @@ public class PddlParser extends Parser {
         Token char_literal353=null;
         Token string_literal354=null;
         Token char_literal356=null;
-        PddlParser.atomicNameFormula_return atomicNameFormula352 = null;
+        PDDLParser.atomicNameFormula_return atomicNameFormula352 = null;
 
-        PddlParser.atomicNameFormula_return atomicNameFormula355 = null;
+        PDDLParser.atomicNameFormula_return atomicNameFormula355 = null;
 
 
         Object char_literal353_tree=null;
@@ -8951,8 +8943,8 @@ public class PddlParser extends Parser {
 
     // $ANTLR start "atomicNameFormula"
     // D:\\Java\\Lib\\antlr\\abcl-bin-1.0.1\\examples-v3\\java\\pddl\\Pddl.g:436:1: atomicNameFormula : '(' predicate ( NAME )* ')' -> ^( PRED_INST predicate ( NAME )* ) ;
-    public final PddlParser.atomicNameFormula_return atomicNameFormula() throws RecognitionException {
-        PddlParser.atomicNameFormula_return retval = new PddlParser.atomicNameFormula_return();
+    public final PDDLParser.atomicNameFormula_return atomicNameFormula() throws RecognitionException {
+        PDDLParser.atomicNameFormula_return retval = new PDDLParser.atomicNameFormula_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
@@ -8960,7 +8952,7 @@ public class PddlParser extends Parser {
         Token char_literal357=null;
         Token NAME359=null;
         Token char_literal360=null;
-        PddlParser.predicate_return predicate358 = null;
+        PDDLParser.predicate_return predicate358 = null;
 
 
         Object char_literal357_tree=null;
@@ -9077,8 +9069,8 @@ public class PddlParser extends Parser {
 
     // $ANTLR start "goal"
     // D:\\Java\\Lib\\antlr\\abcl-bin-1.0.1\\examples-v3\\java\\pddl\\Pddl.g:444:1: goal : '(' ':goal' goalDesc ')' -> ^( GOAL goalDesc ) ;
-    public final PddlParser.goal_return goal() throws RecognitionException {
-        PddlParser.goal_return retval = new PddlParser.goal_return();
+    public final PDDLParser.goal_return goal() throws RecognitionException {
+        PDDLParser.goal_return retval = new PDDLParser.goal_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
@@ -9086,7 +9078,7 @@ public class PddlParser extends Parser {
         Token char_literal361=null;
         Token string_literal362=null;
         Token char_literal364=null;
-        PddlParser.goalDesc_return goalDesc363 = null;
+        PDDLParser.goalDesc_return goalDesc363 = null;
 
 
         Object char_literal361_tree=null;
@@ -9173,8 +9165,8 @@ public class PddlParser extends Parser {
 
     // $ANTLR start "probConstraints"
     // D:\\Java\\Lib\\antlr\\abcl-bin-1.0.1\\examples-v3\\java\\pddl\\Pddl.g:446:1: probConstraints : '(' ':constraints' prefConGD ')' -> ^( PROBLEM_CONSTRAINT prefConGD ) ;
-    public final PddlParser.probConstraints_return probConstraints() throws RecognitionException {
-        PddlParser.probConstraints_return retval = new PddlParser.probConstraints_return();
+    public final PDDLParser.probConstraints_return probConstraints() throws RecognitionException {
+        PDDLParser.probConstraints_return retval = new PDDLParser.probConstraints_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
@@ -9182,7 +9174,7 @@ public class PddlParser extends Parser {
         Token char_literal365=null;
         Token string_literal366=null;
         Token char_literal368=null;
-        PddlParser.prefConGD_return prefConGD367 = null;
+        PDDLParser.prefConGD_return prefConGD367 = null;
 
 
         Object char_literal365_tree=null;
@@ -9269,8 +9261,8 @@ public class PddlParser extends Parser {
 
     // $ANTLR start "prefConGD"
     // D:\\Java\\Lib\\antlr\\abcl-bin-1.0.1\\examples-v3\\java\\pddl\\Pddl.g:451:1: prefConGD : ( '(' 'and' ( prefConGD )* ')' | '(' 'forall' '(' typedVariableList ')' prefConGD ')' | '(' 'preference' ( NAME )? conGD ')' | conGD );
-    public final PddlParser.prefConGD_return prefConGD() throws RecognitionException {
-        PddlParser.prefConGD_return retval = new PddlParser.prefConGD_return();
+    public final PDDLParser.prefConGD_return prefConGD() throws RecognitionException {
+        PDDLParser.prefConGD_return retval = new PDDLParser.prefConGD_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
@@ -9287,15 +9279,15 @@ public class PddlParser extends Parser {
         Token string_literal381=null;
         Token NAME382=null;
         Token char_literal384=null;
-        PddlParser.prefConGD_return prefConGD371 = null;
+        PDDLParser.prefConGD_return prefConGD371 = null;
 
-        PddlParser.typedVariableList_return typedVariableList376 = null;
+        PDDLParser.typedVariableList_return typedVariableList376 = null;
 
-        PddlParser.prefConGD_return prefConGD378 = null;
+        PDDLParser.prefConGD_return prefConGD378 = null;
 
-        PddlParser.conGD_return conGD383 = null;
+        PDDLParser.conGD_return conGD383 = null;
 
-        PddlParser.conGD_return conGD385 = null;
+        PDDLParser.conGD_return conGD385 = null;
 
 
         Object char_literal369_tree=null;
@@ -9539,8 +9531,8 @@ public class PddlParser extends Parser {
 
     // $ANTLR start "metricSpec"
     // D:\\Java\\Lib\\antlr\\abcl-bin-1.0.1\\examples-v3\\java\\pddl\\Pddl.g:458:1: metricSpec : '(' ':metric' optimization metricFExp ')' -> ^( PROBLEM_METRIC optimization metricFExp ) ;
-    public final PddlParser.metricSpec_return metricSpec() throws RecognitionException {
-        PddlParser.metricSpec_return retval = new PddlParser.metricSpec_return();
+    public final PDDLParser.metricSpec_return metricSpec() throws RecognitionException {
+        PDDLParser.metricSpec_return retval = new PDDLParser.metricSpec_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
@@ -9548,9 +9540,9 @@ public class PddlParser extends Parser {
         Token char_literal386=null;
         Token string_literal387=null;
         Token char_literal390=null;
-        PddlParser.optimization_return optimization388 = null;
+        PDDLParser.optimization_return optimization388 = null;
 
-        PddlParser.metricFExp_return metricFExp389 = null;
+        PDDLParser.metricFExp_return metricFExp389 = null;
 
 
         Object char_literal386_tree=null;
@@ -9645,8 +9637,8 @@ public class PddlParser extends Parser {
 
     // $ANTLR start "optimization"
     // D:\\Java\\Lib\\antlr\\abcl-bin-1.0.1\\examples-v3\\java\\pddl\\Pddl.g:463:1: optimization : ( 'minimize' | 'maximize' );
-    public final PddlParser.optimization_return optimization() throws RecognitionException {
-        PddlParser.optimization_return retval = new PddlParser.optimization_return();
+    public final PDDLParser.optimization_return optimization() throws RecognitionException {
+        PDDLParser.optimization_return retval = new PDDLParser.optimization_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
@@ -9703,8 +9695,8 @@ public class PddlParser extends Parser {
 
     // $ANTLR start "metricFExp"
     // D:\\Java\\Lib\\antlr\\abcl-bin-1.0.1\\examples-v3\\java\\pddl\\Pddl.g:465:1: metricFExp : ( '(' binaryOp metricFExp metricFExp ')' | '(' ( '*' | '/' ) metricFExp ( metricFExp )+ ')' | '(' '-' metricFExp ')' | NUMBER | '(' functionSymbol ( NAME )* ')' | functionSymbol | 'total-time' | '(' 'is-violated' NAME ')' );
-    public final PddlParser.metricFExp_return metricFExp() throws RecognitionException {
-        PddlParser.metricFExp_return retval = new PddlParser.metricFExp_return();
+    public final PDDLParser.metricFExp_return metricFExp() throws RecognitionException {
+        PDDLParser.metricFExp_return retval = new PDDLParser.metricFExp_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
@@ -9726,21 +9718,21 @@ public class PddlParser extends Parser {
         Token string_literal414=null;
         Token NAME415=null;
         Token char_literal416=null;
-        PddlParser.binaryOp_return binaryOp393 = null;
+        PDDLParser.binaryOp_return binaryOp393 = null;
 
-        PddlParser.metricFExp_return metricFExp394 = null;
+        PDDLParser.metricFExp_return metricFExp394 = null;
 
-        PddlParser.metricFExp_return metricFExp395 = null;
+        PDDLParser.metricFExp_return metricFExp395 = null;
 
-        PddlParser.metricFExp_return metricFExp399 = null;
+        PDDLParser.metricFExp_return metricFExp399 = null;
 
-        PddlParser.metricFExp_return metricFExp400 = null;
+        PDDLParser.metricFExp_return metricFExp400 = null;
 
-        PddlParser.metricFExp_return metricFExp404 = null;
+        PDDLParser.metricFExp_return metricFExp404 = null;
 
-        PddlParser.functionSymbol_return functionSymbol408 = null;
+        PDDLParser.functionSymbol_return functionSymbol408 = null;
 
-        PddlParser.functionSymbol_return functionSymbol411 = null;
+        PDDLParser.functionSymbol_return functionSymbol411 = null;
 
 
         Object char_literal392_tree=null;
@@ -10053,8 +10045,8 @@ public class PddlParser extends Parser {
 
     // $ANTLR start "conGD"
     // D:\\Java\\Lib\\antlr\\abcl-bin-1.0.1\\examples-v3\\java\\pddl\\Pddl.g:476:1: conGD : ( '(' 'and' ( conGD )* ')' | '(' 'forall' '(' typedVariableList ')' conGD ')' | '(' 'at' 'end' goalDesc ')' | '(' 'always' goalDesc ')' | '(' 'sometime' goalDesc ')' | '(' 'within' NUMBER goalDesc ')' | '(' 'at-most-once' goalDesc ')' | '(' 'sometime-after' goalDesc goalDesc ')' | '(' 'sometime-before' goalDesc goalDesc ')' | '(' 'always-within' NUMBER goalDesc goalDesc ')' | '(' 'hold-during' NUMBER NUMBER goalDesc ')' | '(' 'hold-after' NUMBER goalDesc ')' );
-    public final PddlParser.conGD_return conGD() throws RecognitionException {
-        PddlParser.conGD_return retval = new PddlParser.conGD_return();
+    public final PDDLParser.conGD_return conGD() throws RecognitionException {
+        PDDLParser.conGD_return retval = new PDDLParser.conGD_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
@@ -10103,37 +10095,37 @@ public class PddlParser extends Parser {
         Token string_literal473=null;
         Token NUMBER474=null;
         Token char_literal476=null;
-        PddlParser.conGD_return conGD419 = null;
+        PDDLParser.conGD_return conGD419 = null;
 
-        PddlParser.typedVariableList_return typedVariableList424 = null;
+        PDDLParser.typedVariableList_return typedVariableList424 = null;
 
-        PddlParser.conGD_return conGD426 = null;
+        PDDLParser.conGD_return conGD426 = null;
 
-        PddlParser.goalDesc_return goalDesc431 = null;
+        PDDLParser.goalDesc_return goalDesc431 = null;
 
-        PddlParser.goalDesc_return goalDesc435 = null;
+        PDDLParser.goalDesc_return goalDesc435 = null;
 
-        PddlParser.goalDesc_return goalDesc439 = null;
+        PDDLParser.goalDesc_return goalDesc439 = null;
 
-        PddlParser.goalDesc_return goalDesc444 = null;
+        PDDLParser.goalDesc_return goalDesc444 = null;
 
-        PddlParser.goalDesc_return goalDesc448 = null;
+        PDDLParser.goalDesc_return goalDesc448 = null;
 
-        PddlParser.goalDesc_return goalDesc452 = null;
+        PDDLParser.goalDesc_return goalDesc452 = null;
 
-        PddlParser.goalDesc_return goalDesc453 = null;
+        PDDLParser.goalDesc_return goalDesc453 = null;
 
-        PddlParser.goalDesc_return goalDesc457 = null;
+        PDDLParser.goalDesc_return goalDesc457 = null;
 
-        PddlParser.goalDesc_return goalDesc458 = null;
+        PDDLParser.goalDesc_return goalDesc458 = null;
 
-        PddlParser.goalDesc_return goalDesc463 = null;
+        PDDLParser.goalDesc_return goalDesc463 = null;
 
-        PddlParser.goalDesc_return goalDesc464 = null;
+        PDDLParser.goalDesc_return goalDesc464 = null;
 
-        PddlParser.goalDesc_return goalDesc470 = null;
+        PDDLParser.goalDesc_return goalDesc470 = null;
 
-        PddlParser.goalDesc_return goalDesc475 = null;
+        PDDLParser.goalDesc_return goalDesc475 = null;
 
 
         Object char_literal417_tree=null;
