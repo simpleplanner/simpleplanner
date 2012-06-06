@@ -9,6 +9,13 @@ import org.antlr.runtime.MismatchedSetException;
 import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.RecognizerSharedState;
 
+/**
+ * PDDL grammar for ANTLR v3
+ * School of Computer Science
+ * University of Birmingham
+ * @author Zeyn Saigol
+ * 
+ */
 public class PDDLLexer extends Lexer {
     public static final int REQUIRE_KEY=45;
     public static final int FUNCTIONS=10;

@@ -15,7 +15,7 @@ public class Main {
 		AbstractPlanner planner = new Planner();
 		
 		Loader l = new Loader();
-		l.load("example/gripper.xml");
+		l.load("example/xml/gripper.xml");
 		Problem p = l.problem("gripper8");
 		
 		long time1 = System.nanoTime();

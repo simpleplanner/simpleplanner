@@ -20,6 +20,13 @@ import org.antlr.runtime.tree.RewriteRuleSubtreeStream;
 import org.antlr.runtime.tree.RewriteRuleTokenStream;
 import org.antlr.runtime.tree.TreeAdaptor;
 
+/**
+ * PDDL grammar for ANTLR v3
+ * School of Computer Science
+ * University of Birmingham
+ * @author Zeyn Saigol
+ * 
+ */
 public class PDDLParser extends Parser {
     public static final String[] tokenNames = new String[] {
         "<invalid>", "<EOR>", "<DOWN>", "<UP>", "DOMAIN", "DOMAIN_NAME", "REQUIREMENTS", "TYPES", "EITHER_TYPE", "CONSTANTS", "FUNCTIONS", "PREDICATES", "ACTION", "DURATIVE_ACTION", "PROBLEM", "PROBLEM_NAME", "PROBLEM_DOMAIN", "OBJECTS", "INIT", "FUNC_HEAD", "PRECONDITION", "EFFECT", "AND_GD", "OR_GD", "NOT_GD", "IMPLY_GD", "EXISTS_GD", "FORALL_GD", "COMPARISON_GD", "AND_EFFECT", "FORALL_EFFECT", "WHEN_EFFECT", "ASSIGN_EFFECT", "NOT_EFFECT", "PRED_HEAD", "GOAL", "BINARY_OP", "UNARY_MINUS", "INIT_EQ", "INIT_AT", "NOT_PRED_INIT", "PRED_INST", "PROBLEM_CONSTRAINT", "PROBLEM_METRIC", "NAME", "REQUIRE_KEY", "VARIABLE", "NUMBER", "LETTER", "ANY_CHAR", "DIGIT", "LINE_COMMENT", "WHITESPACE", "'('", "'define'", "')'", "'domain'", "':requirements'", "':types'", "'-'", "'either'", "':functions'", "'number'", "':constants'", "':predicates'", "':constraints'", "':action'", "':parameters'", "':precondition'", "':effect'", "'and'", "'or'", "'not'", "'imply'", "'exists'", "'forall'", "':durative-action'", "':duration'", "':condition'", "'preference'", "'at'", "'over'", "'start'", "'end'", "'all'", "':derived'", "'when'", "'*'", "'+'", "'/'", "'>'", "'<'", "'='", "'>='", "'<='", "'assign'", "'scale-up'", "'scale-down'", "'increase'", "'decrease'", "'?duration'", "'problem'", "':domain'", "':objects'", "':init'", "':goal'", "':metric'", "'minimize'", "'maximize'", "'total-time'", "'is-violated'", "'always'", "'sometime'", "'within'", "'at-most-once'", "'sometime-after'", "'sometime-before'", "'always-within'", "'hold-during'", "'hold-after'"

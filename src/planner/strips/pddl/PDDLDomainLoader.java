@@ -118,7 +118,7 @@ public class PDDLDomainLoader extends PDDLLoader {
 		
 		for (int i = 0; i < preds.getChildCount(); i++) {
 			final Tree tree = preds.getChild(i);
-			Predicate predicate = addPredicate(tree);
+			Predicate predicate = addDomainPredicate(tree);
 			
 			predicates.put(predicate.name, predicate);
 		}
@@ -126,11 +126,11 @@ public class PDDLDomainLoader extends PDDLLoader {
 		return predicates;
 	}
 	
-	private Predicate addPredicate(Tree pred) throws PDDLParseException{
+	private Predicate addDomainPredicate(Tree tree) throws PDDLParseException{
 		Predicate predicate = new  Predicate();
 		
-		predicate.name = pred.getText();
-		predicate.params = addParameters(pred);
+		predicate.name = tree.getText();
+		predicate.params = addParameters(tree);
 		
 		return predicate;
 	}

@@ -11,8 +11,8 @@ public class MainPddl {
 	static String[] tokenNames;
 
 	public static void main(String[] args) throws Exception {
-		String domainFile = new String("lib/blocks.pddl");
-		String problemFile = new String("lib/blocksprob1.pddl");
+		String domainFile = new String("example/pddl/blocks.pddl");
+		String problemFile = new String("example/pddl/blocksprob1.pddl");
 
 		PDDLDomainLoader builder = new PDDLDomainLoader(domainFile);
 		Domain domain = builder.loadDomain();

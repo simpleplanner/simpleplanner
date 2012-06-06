@@ -19,7 +19,7 @@ import planner.strips.Predicate;
 import planner.strips.Type;
 
 /**
- * @author Sávio Mota
+ * @author <a href="mailto:saviod2@gmail.com">Sávio Mota</a>
  *
  */
 public class PDDLLoader {
@@ -77,13 +77,7 @@ public class PDDLLoader {
 			final int type = child.getType();
 	        switch (type) {
 	        	case PDDLLexer.PRED_HEAD:
-	        		Predicate p = new Predicate();
-					p.name = child.getChild(0).getText();
-					if (child.getChildCount() > 1){
-						for (int j = 1; j < child.getChildCount(); j++) {
-							p.params.add(addParameter(child.getChild(j)));
-						}
-					}
+	        		Predicate p = addPredicate(child);
 					conditions.add(p);
 					break;
 	        	case PDDLLexer.NOT_GD:
@@ -114,6 +108,23 @@ public class PDDLLoader {
 		}
 		
 	    return conditions;
+	}
+
+	protected Predicate addPredicate(Tree tree) throws PDDLParseException {
+		Predicate p = new Predicate();
+		String predicateName = tree.getChild(0).getText();
+		
+		if (domain.predicates.containsKey(predicateName)){
+			p.name = predicateName;
+			if (tree.getChildCount() > 1){
+				for (int j = 1; j < tree.getChildCount(); j++) {
+					p.params.add(addParameter(tree.getChild(j)));
+				}
+			}
+			return p;
+		}else{
+			throw new PDDLParseException("Predicate " + predicateName + " not declared");
+		}
 	}
 
 }

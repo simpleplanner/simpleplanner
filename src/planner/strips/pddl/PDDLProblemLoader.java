@@ -80,13 +80,7 @@ public class PDDLProblemLoader extends PDDLLoader {
 			final int type = child.getType();
 			switch (type) {
 			case PDDLLexer.PRED_INST:
-				Predicate p = new Predicate();
-				p.name = child.getChild(0).getText();
-				if (child.getChildCount() > 1){
-					for (int j = 1; j < child.getChildCount(); j++) {
-						p.params.add(addParameter(child.getChild(j)));
-					}
-				}
+				Predicate p = addPredicate(child);
 				predicates.add(p);
 				break;
 			default:
