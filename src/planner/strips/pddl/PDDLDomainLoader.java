@@ -82,12 +82,14 @@ public class PDDLDomainLoader extends PDDLAbstractLoader {
 		domain.types.put("object", new Type("object"));
 		for (int i = 0; i < types.getChildCount(); i++) {
 			final Tree type = types.getChild(i);
+			String typeName = type.getText();
+			Type parentType = null;
 			if (type.getChildCount() != 0) {
-				String typeName = type.getText();
-				String parentTypeName = type.getChild(0).getText();
-                Type parentType = domain.types.get(parentTypeName);
-                domain.types.put(typeName, new Type(typeName, parentType));
+				parentType = domain.types.get(type.getChild(0).getText());
+			}else{
+				parentType = domain.types.get("object");
 			}
+			domain.types.put(typeName, new Type(typeName, parentType));
 		}
 	}
 
@@ -103,10 +105,10 @@ public class PDDLDomainLoader extends PDDLAbstractLoader {
                     a.params.add(addParameter(child));
                     break;
                 case PDDLLexer.PRECONDITION:
-                    a.precondition = loadChildCondition(child).get(0);
+                    a.precondition = loadChildCondition(a, child).get(0);
                     break;
                 case PDDLLexer.EFFECT:
-                    a.effects = loadChildCondition(child).get(0);
+                    a.effects = loadChildCondition(a, child).get(0);
                     break;
                 default:
                     throw new PDDLParseException("Invalid action child node: " + child.getText());
@@ -133,12 +135,12 @@ public class PDDLDomainLoader extends PDDLAbstractLoader {
 		Predicate predicate = new  Predicate();
 		
 		predicate.name = tree.getText();
-		predicate.params = addParameters(tree);
+		predicate.params = addDomainParameters(tree);
 		
 		return predicate;
 	}
 	
-	private List<Parameter> addParameters(Tree tree) throws PDDLParseException {
+	private List<Parameter> addDomainParameters(Tree tree) throws PDDLParseException {
 		List<Parameter> params = new ArrayList<Parameter>();
 		
 		for (int j = 0; j < tree.getChildCount(); j++) {

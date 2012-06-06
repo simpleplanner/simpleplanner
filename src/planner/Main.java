@@ -19,7 +19,7 @@ public class Main {
 		Problem problem = null;
 		
 		problem = getProblemFromPddl();
-		problem = getProblemFromXml();
+		//problem = getProblemFromXml();
 		
 		long time1 = System.nanoTime();
 		planner.graphBreadth(problem);
@@ -30,15 +30,14 @@ public class Main {
 	
 	
 	private static Problem getProblemFromXml() {
-		Loader l = new Loader();
-		l.load("example/xml/gripper.xml");
+		Loader l = new Loader("example/xml/gripper.xml");
 		return l.problem("gripper8");
 	}
 
 
 	private static Problem getProblemFromPddl() throws PDDLSyntaxException, IOException, PDDLParseException{
-		String domainFile = new String("example/pddl/blocks.pddl");
-		String problemFile = new String("example/pddl/blocksprob1.pddl");
+		String domainFile = new String("example/pddl/domain-gripper.pddl");
+		String problemFile = new String("example/pddl/problem-gripper8.pddl");
 		PDDLLoader pddlLoader = new PDDLLoader(domainFile, problemFile);
 		
 		return pddlLoader.getProblem();

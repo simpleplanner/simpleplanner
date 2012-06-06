@@ -64,7 +64,7 @@ public class PDDLProblemLoader extends PDDLAbstractLoader {
                 addInitialState(child);
                 break;
             case PDDLLexer.GOAL:
-            	problem.goal = loadChildCondition(child).get(0);
+            	problem.goal = loadChildCondition(problem, child).get(0);
                 break;
             case PDDLLexer.PROBLEM_CONSTRAINT:
                 throw new UnsupportedOperationException("Constraints not supported yet");
@@ -83,7 +83,7 @@ public class PDDLProblemLoader extends PDDLAbstractLoader {
 			final int type = child.getType();
 			switch (type) {
 			case PDDLLexer.PRED_INST:
-				Predicate p = addPredicate(child);
+				Predicate p = addPredicate(problem, child);
 				predicates.add(p);
 				break;
 			default:

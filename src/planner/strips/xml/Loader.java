@@ -25,7 +25,7 @@ public class Loader {
 	private Domain domain;
 	private Map<String, Problem> problems = new HashMap<String, Problem>();
 
-	public void load(String path) {
+	public Loader(String path) {
 		XMLParser parser = new XMLParser(path, "strips");
 		loadDomain(parser);
 		loadProblems(parser);

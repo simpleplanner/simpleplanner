@@ -15,6 +15,7 @@ import planner.strips.Condition;
 import planner.strips.Domain;
 import planner.strips.Not;
 import planner.strips.Parameter;
+import planner.strips.Parametized;
 import planner.strips.Predicate;
 import planner.strips.Type;
 import planner.strips.pddl.antlr.PDDLLexer;
@@ -55,25 +56,21 @@ public abstract class PDDLAbstractLoader {
 		}
 	}
 
-	protected Parameter addParameter(Tree tree) throws PDDLParseException {
-		Parameter p = new Parameter();
-		p.name = tree.getText();
+	protected Parameter addParameter(Parametized parametized, Tree tree) throws PDDLParseException {
+		String parameterName = tree.getText();
+		
+		if (parametized.paramsMap.isEmpty()){
+			parametized.buildTypeMap();
+		}
 			
-		if (tree.getChildCount() == 0) {
-	        p.type = domain.types.get("object");
-	    } else {
-	    	String typeName = tree.getChild(0).getText();
-	    	Type type = domain.types.get(typeName);
-	    	if (type == null){
-	    		throw new PDDLParseException("Type " + typeName + " not declared");
-	    	}
-	        p.type = type;
-	    }
-			
-		return p;
+		if (parametized.paramsMap.containsKey(parameterName)){
+			return parametized.paramsMap.get(parameterName);
+		}else{
+			throw new PDDLParseException("Parameter " + parameterName + " not declared");
+		}
 	}
 
-	protected List<Condition> loadChildCondition(Tree tree) throws PDDLParseException {
+	protected List<Condition> loadChildCondition(Parametized parametized, Tree tree) throws PDDLParseException {
 		List<Condition> conditions = new ArrayList<Condition>();
 	
 		for (int i = 0; i < tree.getChildCount(); i++) {
@@ -81,19 +78,19 @@ public abstract class PDDLAbstractLoader {
 			final int type = child.getType();
 	        switch (type) {
 	        	case PDDLLexer.PRED_HEAD:
-	        		Predicate p = addPredicate(child);
+	        		Predicate p = addPredicate(parametized, child);
 					conditions.add(p);
 					break;
 	        	case PDDLLexer.NOT_GD:
 	        	case PDDLLexer.NOT_EFFECT:
 	        		Not not = new Not();
-					not.predicate = (Predicate) loadChildCondition(child).get(0);
+					not.predicate = (Predicate) loadChildCondition(parametized, child).get(0);
 					conditions.add(not);
 	        		break;
 	            case PDDLLexer.AND_GD:
 	            case PDDLLexer.AND_EFFECT:
 	            	And and = new And();
-	        		and.conditions.addAll(loadChildCondition(child));
+	        		and.conditions.addAll(loadChildCondition(parametized, child));
 					conditions.add(and);
 					break;
 	            case PDDLLexer.OR_GD:
@@ -114,7 +111,7 @@ public abstract class PDDLAbstractLoader {
 	    return conditions;
 	}
 
-	protected Predicate addPredicate(Tree tree) throws PDDLParseException {
+	protected Predicate addPredicate(Parametized parametized, Tree tree) throws PDDLParseException {
 		Predicate p = new Predicate();
 		String predicateName = tree.getChild(0).getText();
 		
@@ -122,13 +119,31 @@ public abstract class PDDLAbstractLoader {
 			p.name = predicateName;
 			if (tree.getChildCount() > 1){
 				for (int j = 1; j < tree.getChildCount(); j++) {
-					p.params.add(addParameter(tree.getChild(j)));
+					p.params.add(addParameter(parametized, tree.getChild(j)));
 				}
 			}
 			return p;
 		}else{
 			throw new PDDLParseException("Predicate " + predicateName + " not declared");
 		}
+	}
+	
+	protected Parameter addParameter(Tree tree) throws PDDLParseException {
+		Parameter p = new Parameter();
+		p.name = tree.getText();
+			
+		if (tree.getChildCount() == 0) {
+	        p.type = domain.types.get("object");
+	    } else {
+	    	String typeName = tree.getChild(0).getText();
+	    	Type type = domain.types.get(typeName);
+	    	if (type == null){
+	    		throw new PDDLParseException("Type " + typeName + " not declared");
+	    	}
+	        p.type = type;
+	    }
+			
+		return p;
 	}
 
 }
