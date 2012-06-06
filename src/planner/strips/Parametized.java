@@ -18,7 +18,7 @@ public abstract class Parametized {
 	public List<Parameter> params = new ArrayList<Parameter>();
 	public Map<String, Collection<Parameter>> typeMap = new HashMap<String, Collection<Parameter>>();
 	public Map<String, Parameter> paramsMap = new HashMap<String, Parameter>();
-	
+
 	public void replaceParams(List<Parameter> oldNames, List<Parameter> newNames) {
 		List<Parameter> newParams = new ArrayList<Parameter>();
 		for (Parameter p : params) {
@@ -41,14 +41,14 @@ public abstract class Parametized {
 		for (Parameter parameter : params) {
 			//Criação do mapa de tipos
 			Collection<Parameter> parameters = null;
-			if (!typeMap.containsKey(parameter.type)){
+			if (!typeMap.containsKey(parameter.type.name)){
 				parameters = new HashSet<Parameter>();
 			}else{
-				parameters = typeMap.get(parameter.type);
+				parameters = typeMap.get(parameter.type.name);
 			}
 			
 			parameters.add(parameter);
-			typeMap.put(parameter.type, parameters);
+			typeMap.put(parameter.type.name, parameters);
 			
 			//Criação do mapa de parâmetros
 			paramsMap.put(parameter.name, parameter);

@@ -12,6 +12,13 @@ public class And implements Condition {
 	
 	public List<Condition> conditions = new ArrayList<Condition>();
 
+	public And() {
+	}
+	
+	public And(List<Condition> conditions) {
+		this.conditions = conditions;
+	}
+	
 	@Override
 	public State apply(State s) {
 		State novo = s.copy();

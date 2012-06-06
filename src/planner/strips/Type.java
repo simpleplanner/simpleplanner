@@ -2,21 +2,21 @@ package planner.strips;
 
 /**
  * @author <a href="mailto:saviod2@gmail.com">Sávio Mota</a>
- * 
+ *
  */
-public class Parameter {
+public class Type {
 	public String name;
 	public Type type;
-	
-	public Parameter() {
+
+	public Type() {
 	}
-	
-	public Parameter(String name) {
+
+	public Type(String name) {
 		this.name = name;
 	}
 	
-	public Parameter(String name, Type type) {
-		this(name);
+	public Type(String name, Type type) {
+		this.name = name;
 		this.type = type;
 	}
 	
@@ -25,9 +25,9 @@ public class Parameter {
 		if (this == obj){
 			return true;
 		}
-		if (obj instanceof Parameter){
-			Parameter other = (Parameter) obj;
-			return other.name.equals(name) && other.type.equals(type);
+		if (obj instanceof Type){
+			Type other = (Type) obj;
+			return other.name.equals(name);
 		}
 		return false;
 	}
@@ -40,7 +40,6 @@ public class Parameter {
 	public int hashCode() {
 		int result = 17;
 		result = 31 * result + name.hashCode();
-		result = 31 * result + type.hashCode();
 		return result;
 	}
 	

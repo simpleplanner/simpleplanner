@@ -14,6 +14,7 @@ import planner.strips.Parameter;
 import planner.strips.Parametized;
 import planner.strips.Predicate;
 import planner.strips.Problem;
+import planner.strips.Type;
 
 /**
  * @author <a href="mailto:erickpassos@gmail.com">Erick Passos</a> 
@@ -24,7 +25,7 @@ public class Loader {
 	private Domain domain;
 	private Map<String, Problem> problems = new HashMap<String, Problem>();
 
-	public void load(String path) {
+	public Loader(String path) {
 		XMLParser parser = new XMLParser(path, "strips");
 		loadDomain(parser);
 		loadProblems(parser);
@@ -53,17 +54,31 @@ public class Loader {
 		XMLParser domainXML = parser.child("domain");
 		domain = new Domain();
 		domain.name = domainXML.string("name");
+		domain.types.put("object", new Type("object"));
 		for (XMLParser typeXML : domainXML.children("type")) {
-			domain.types.add(loadType(typeXML));
+			Type type = loadType(typeXML);
+			domain.types.put(type.name, type);
 		}
 		for (XMLParser actionXML : domainXML.children("action")) {
 			domain.actions.add(loadAction(actionXML));
 		}
 	}
 
-	private String loadType(XMLParser typeXML) {
+	private Type loadType(XMLParser typeXML) {
 		String name = typeXML.string("name");
-		return name;
+		String parent = new String();
+		try{
+			 parent = typeXML.string("parent");
+		}catch (RuntimeException e) {}
+		
+		Type type = new Type(name);
+		if (domain.types.containsKey(parent)){
+			type.type = domain.types.get(parent);
+		}else{
+			type.type = domain.types.get("object");
+		}
+		
+		return type;
 	}
 
 	private Action loadAction(XMLParser actionXML) {
@@ -135,12 +150,12 @@ public class Loader {
 			System.out.print("Informe o tipo para o parametro " + paramXML.string("name"));
 			System.exit(0);
 		}
-		if (!domain.types.contains(type)) {
+		if (!domain.types.containsKey(type)) {
 			System.out.println("Type " + type.toUpperCase() + " not declared");
 			System.exit(0);
 		} else {
 			parameter.name = paramXML.string("name");
-			parameter.type = type;
+			parameter.type = domain.types.get(type);
 		}
 		return parameter;
 	}
