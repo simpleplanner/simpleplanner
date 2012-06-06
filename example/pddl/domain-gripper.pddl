@@ -15,7 +15,7 @@
 (:action pick
        :parameters  (?ball - ball ?room - local ?gripper - gripper)
        :precondition (and  (atball ?ball ?room) (atrobby ?room) (free ?gripper))
-       :effect (and (carry ?ball ?gripper) (atball ?ball ?room) (not (free ?gripper))))
+       :effect (and (carry ?ball ?gripper) (not (atball ?ball ?room)) (not (free ?gripper))))
 
 	
 (:action drop
