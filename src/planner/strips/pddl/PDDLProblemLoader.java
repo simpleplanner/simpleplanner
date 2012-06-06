@@ -9,12 +9,15 @@ import org.antlr.runtime.tree.Tree;
 import planner.strips.Domain;
 import planner.strips.Predicate;
 import planner.strips.Problem;
+import planner.strips.pddl.antlr.PDDLLexer;
+import planner.strips.pddl.antlr.PDDLParseException;
+import planner.strips.pddl.antlr.PDDLSyntaxException;
 
 /**
  * @author <a href="mailto:saviod2@gmail.com">Sávio Mota</a>
  * 
  */
-public class PDDLProblemLoader extends PDDLLoader {
+public class PDDLProblemLoader extends PDDLAbstractLoader {
 	private Problem problem;
 
 	public PDDLProblemLoader(Domain domain, String file) throws PDDLSyntaxException, IOException {

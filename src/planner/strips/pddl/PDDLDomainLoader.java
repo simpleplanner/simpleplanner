@@ -13,12 +13,15 @@ import planner.strips.Domain;
 import planner.strips.Parameter;
 import planner.strips.Predicate;
 import planner.strips.Type;
+import planner.strips.pddl.antlr.PDDLLexer;
+import planner.strips.pddl.antlr.PDDLParseException;
+import planner.strips.pddl.antlr.PDDLSyntaxException;
 
 /**
  * @author <a href="mailto:saviod2@gmail.com">Sávio Mota</a>
  * 
  */
-public class PDDLDomainLoader extends PDDLLoader {
+public class PDDLDomainLoader extends PDDLAbstractLoader {
 	
 	public PDDLDomainLoader(String file) throws PDDLSyntaxException, IOException {
 		super(file);
