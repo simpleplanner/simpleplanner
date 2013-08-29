@@ -12,6 +12,10 @@ public class Configuration {
 	public String problemPath = ""; 
 	public String domainPath = "";
 	
+	public Configuration(String domain, String problem) {
+		this.domainPath = domain;
+		this.problemPath = problem;
+	}
 	public Configuration() {
 		problemPath = "example/pddl/problem-veiculo.pddl";
 		domainPath = "example/pddl/domain-veiculo.pddl";
