@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 
+import planner.fluents.Function;
+
 /**
  * @author <a href="mailto:erickpassos@gmail.com">Erick Passos</a> 
  * @author <a href="mailto:saviod2@gmail.com">Sávio Mota</a>
@@ -16,6 +18,8 @@ public class Domain {
 	public Map<String, Type> types = new HashMap<String, Type>();
 	public Collection<String> requirements = new HashSet<String>();
 	public Map<String, Predicate> predicates = new HashMap<String, Predicate>();
+	public Map<String, Function> functions = new HashMap<String, Function>();
+
 	
 	public Domain() {
 		Type object = new Type("object");
@@ -37,7 +41,11 @@ public class Domain {
 		for (String key : predicates.keySet()) {
 			builder.append("		" + predicates.get(key) + "\n");
 		}
-		builder.append("	)\n");
+		builder.append("	)\n (:functions\n");
+		for (String key : functions.keySet()) {
+			builder.append("		" + functions.get(key) + "\n");
+		}
+		builder.append("	)\n ");
 		
 		for (Action action : actions) {
 			builder.append("	" + action + "\n");

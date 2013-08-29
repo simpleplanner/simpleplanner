@@ -12,4 +12,5 @@ public interface Condition {
 	public State apply(State s);
 	public void replaceParams(List<Parameter> oldNames, List<Parameter> newNames);
 	public Condition copy();
+	public State unapply(State state);
 }

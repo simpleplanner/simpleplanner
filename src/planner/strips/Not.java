@@ -1,5 +1,6 @@
 package planner.strips;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -10,7 +11,11 @@ import java.util.List;
 public class Not implements Condition {
 	
 	public Predicate predicate;
-
+	
+	public Not() {
+		
+	}
+	
 	@Override
 	public State apply(State s) {
 		State novo = s.copy();
@@ -20,6 +25,17 @@ public class Not implements Condition {
 		return novo;
 	}
 
+	@Override
+	public State unapply(State s) {
+		State novo = s.copy();
+		Parametized other = novo.findSame(predicate);
+		if (other == null){
+			novo.predicates.add(predicate);
+		}
+		return novo;
+	}
+
+	
 	@Override
 	public boolean verify(State s) {
 		return !predicate.verify(s);
@@ -41,5 +57,5 @@ public class Not implements Condition {
 	public String toString() {
 		return "(not "+predicate+")";
 	}
-
+	
 }

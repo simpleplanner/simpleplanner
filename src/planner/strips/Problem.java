@@ -4,17 +4,22 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
+import planner.fluents.Function;
 
 /**
  * @author <a href="mailto:erickpassos@gmail.com">Erick Passos</a> 
  * @author <a href="mailto:saviod2@gmail.com">Sávio Mota</a>
  * 
  */
+
 public class Problem extends Parametized{
 	public State init = new State();
+	public Condition initAsCondition;
 	public Condition goal;
+	public State goalAsState = new State();
 	public Domain domain;
 	public Collection<Action> actions = new HashSet<Action>();
+        public Collection<Function> functions = new HashSet<Function>();
 
 	public void computeActions() {
 		buildTypeMap();
@@ -51,8 +56,11 @@ public class Problem extends Parametized{
 				System.exit(0);
 			}
 		} else {
+                       
 			Action a = action.copy();
 			a.replaceParams(a.params, params);
+                        a.applyAssignEffects(this);
+                        a.applyPreConditions(this);
 			actions.add(a);
 		}
 	}
@@ -68,6 +76,9 @@ public class Problem extends Parametized{
 		builder.append("	)\n	(:init\n");
 		for (Predicate p : init.predicates) {
 			builder.append("		" + p + "\n");
+		}
+		for (Function f : init.functions) {
+			builder.append("		" + f + "\n");
 		}
 		builder.append("	)\n	(:goal " + goal);
 		builder.append("	)\n");

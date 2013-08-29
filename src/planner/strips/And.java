@@ -62,4 +62,13 @@ public class And implements Condition {
 		return retorno;
 	}
 
+	@Override
+	public State unapply(State state) {
+		State novo = state.copy();
+		for (Condition c : conditions) {
+			novo = c.unapply(novo);
+		}
+		return novo;
+	}
+
 }

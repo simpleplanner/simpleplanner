@@ -2,6 +2,9 @@ package planner.strips;
 
 import java.util.List;
 
+import planner.comparisons.Comparison;
+import planner.fluents.AssignEffect;
+
 /**
  * @author <a href="mailto:erickpassos@gmail.com">Erick Passos</a> 
  * @author <a href="mailto:saviod2@gmail.com">Sávio Mota</a>
@@ -55,5 +58,35 @@ public class Action extends Parametized implements Condition{
 		}
 		retorno +=")";
 		return retorno; 
+	}
+        
+        public void applyAssignEffects(Problem p){
+            //fazer um cast para AND, depois procurar o assignEffect e mudar os parametros na funcao.
+           AssignEffect  assignEffect = null; 
+           And and = (And) effects;
+           
+           for (Condition effect : and.conditions){
+               if (effect instanceof planner.fluents.AssignEffect){
+                   assignEffect = (AssignEffect) effect;
+                   assignEffect.applyAssignEffects(p);
+               }
+           }
+        }
+
+        void applyPreConditions(Problem p) {
+            //fazer um cast para AND, depois procurar o assignEffect e mudar os parametros na funcao.
+           Comparison  condition = null; 
+           And and = (And) precondition;
+           
+           for (Condition comparision : and.conditions){
+               if (comparision instanceof planner.comparisons.Comparison){
+                   condition = (Comparison) comparision;
+                   condition.applyComparision(p);
+               }
+           }
+    }
+        
+	public State unapply(State state) {
+		return effects.unapply(state);
 	}
 }

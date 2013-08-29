@@ -85,4 +85,17 @@ public class Predicate extends Parametized implements Condition {
 		return retorno;
 	}
 
+	@Override
+	public State unapply(State state) {
+		State novo = state.copy();
+		
+		Parametized other = novo.findSame(this);
+		if (other != null){
+			novo.predicates.remove(other);
+			
+		}
+		return novo;
+		
+	}
+
 }
