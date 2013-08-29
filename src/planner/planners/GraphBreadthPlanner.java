@@ -45,7 +45,7 @@ public class GraphBreadthPlanner implements Planner {
 				break;
 			solution = searchSolution(currentSolutions, p);
 		}
-		SolutionPrinter.getInstance().printPlan(solution);
+//		SolutionPrinter.getInstance().printPlan(solution);
 		return solution;
 	}
 
@@ -91,7 +91,7 @@ public class GraphBreadthPlanner implements Planner {
 				break;
 			solution = searchSolutionBack(currentSolutions, p);
 		}
-		SolutionPrinter.getInstance().printPlan(solution);
+//		SolutionPrinter.getInstance().printPlan(solution);
 		return solution;
 	}
 	
