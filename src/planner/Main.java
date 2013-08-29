@@ -14,12 +14,8 @@ public class Main {
 	 * @throws Exception
 	 */
 	public static void main(String[] args) throws Exception {
-		Configuration config= new Configuration();
-		config.domainPath = "example/pddl/domain-veiculo.pddl"; 
-		config.problemPath = "example/pddl/problem-veiculo.pddl"; 
-	
+		Configuration config= new Configuration("example/pddl/domain-veiculo.pddl", "example/pddl/problem-veiculo.pddl");
 		Planner planner = new GraphBreadthPlanner();
-		
 		planner.foward(config.getProblemFromPddl());
 		
 	}
